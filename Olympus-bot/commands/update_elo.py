@@ -103,7 +103,6 @@ class update_elo(commands.Cog):
         winner_id = str(winner.id)
         looser_id = str(looser.id)
 
-        # --- BONUS Berechnung ---
         eloBonus = 0
         sorted_leaderboard = sorted(leaderboard.items(), key=lambda x: x[1]["elo"], reverse=True)
         top5_ids = [team_id for team_id, _ in sorted_leaderboard[:7]]
@@ -113,7 +112,6 @@ class update_elo(commands.Cog):
         looser_bonus = bonus_map[top5_ids.index(looser_id)] if looser_id in top5_ids else 0
         eloBonus = max(winner_bonus, looser_bonus)
 
-        # --- Ranking Positionen vergleichen ---
         sorted_ids = list(leaderboard.keys())
         index1 = sorted_ids.index(str(team1.id))
         index2 = sorted_ids.index(str(team2.id))
@@ -151,13 +149,11 @@ class update_elo(commands.Cog):
             winnerElo = baseElo + 5
             loosingElo = baseElo
 
-        # --- Bonus anwenden ---
         if ff == True:
             winnerElo += (eloBonus // 3)
         else:
             winnerElo += eloBonus
 
-        # --- ELO Updates ---
         oldEloWinner = leaderboard[winner_id]["elo"]
         oldEloLooser = leaderboard[looser_id]["elo"]
 
