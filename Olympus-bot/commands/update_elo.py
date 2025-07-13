@@ -9,7 +9,7 @@ class update_elo(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    async def send_results_embed(self, interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser, set1_team1_score, set1_team2_score, set1_winner, set2_team1_score, set2_team2_score, set2_winner, set3_team1_score, set3_team2_score, set3_winner, config, guild_id, match_type):
+    async def send_results_embed(self, interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser, set1_team1_score, set1_team2_score, set1_winner, set2_team1_score, set2_team2_score, set2_winner, set3_team1_score, set3_team2_score, set3_winner, config, guild_id, match_type, ff):
         winnerElo = leaderboard[str(winner.id)]["elo"]
         looserElo = leaderboard[str(looser.id)]["elo"]
 
@@ -18,13 +18,11 @@ class update_elo(commands.Cog):
 
         if set1_winner == winner:
             team1SetCounter += 1
-
         elif set1_winner == looser:
             team2SetCounter += 1
 
         if set2_winner == winner:
             team1SetCounter += 1
-
         elif set2_winner == looser:
             team2SetCounter += 1
 
@@ -42,8 +40,13 @@ class update_elo(commands.Cog):
 
         save_config(config)
 
+        if ff == True:
+            ff_text = "(Surrender)"
+        else: 
+            ff_text = ""
+
         embed = discord.Embed(
-            title=f"{match_type.name} - Match Result",
+            title=f"{match_type.name} - Match Result \n {ff_text}",
             description=(
                 f"**{winner.mention}** vs **{looser.mention}**\n\n"
                 f"**Sets: {team1SetCounter} - {team2SetCounter} **\n\n"
@@ -69,14 +72,11 @@ class update_elo(commands.Cog):
             app_commands.Choice(name="League-Match", value="league-match")
         ]
     )
-    async def update_elo(self, interaction: discord.Interaction,  match_type: app_commands.Choice[str], team1: discord.Role, team2: discord.Role, winner: discord.Role, set1_team1_score: int, set1_team2_score: int, set1_winner: discord.Role, set2_team1_score: int, set2_team2_score: int, set2_winner: discord.Role, set3_team1_score: int, set3_team2_score: int, set3_winner: discord.Role):
+    async def update_elo(self, interaction: discord.Interaction, match_type: app_commands.Choice[str], team1: discord.Role, team2: discord.Role, winner: discord.Role, set1_team1_score: int, set1_team2_score: int, set1_winner: discord.Role, set2_team1_score: int, set2_team2_score: int, set2_winner: discord.Role, set3_team1_score: int, set3_team2_score: int, set3_winner: discord.Role):
         has_permission = any(role.name == "elo-perms" for role in interaction.user.roles)
 
         if not has_permission:
-            await interaction.response.send_message(
-                "You need the `elo-perms` role to use this command.",
-                ephemeral=True
-            )
+            await interaction.response.send_message("You need the `elo-perms` role to use this command.", ephemeral=True)
             return 
         
         config = load_config()
@@ -84,8 +84,8 @@ class update_elo(commands.Cog):
         teams = config["server"][guild_id]["teams"]
         leaderboard = config["server"][guild_id]["leaderboard"]
 
-        baseElo = 6
-        loosingElo = 6
+        baseElo = 10
+        loosingElo = 10
 
         if any(team.name == "@everyone" for team in [team1, team2, winner]):
             await interaction.response.send_message("You cannot use @everyone.", ephemeral=True)
@@ -103,6 +103,17 @@ class update_elo(commands.Cog):
         winner_id = str(winner.id)
         looser_id = str(looser.id)
 
+        # --- BONUS Berechnung ---
+        eloBonus = 0
+        sorted_leaderboard = sorted(leaderboard.items(), key=lambda x: x[1]["elo"], reverse=True)
+        top5_ids = [team_id for team_id, _ in sorted_leaderboard[:7]]
+        bonus_map = {0: 60, 1: 50, 2: 40, 3: 30, 4: 20, 5: 10, 6: 5}
+
+        winner_bonus = bonus_map[top5_ids.index(winner_id)] if winner_id in top5_ids else 0
+        looser_bonus = bonus_map[top5_ids.index(looser_id)] if looser_id in top5_ids else 0
+        eloBonus = max(winner_bonus, looser_bonus)
+
+        # --- Ranking Positionen vergleichen ---
         sorted_ids = list(leaderboard.keys())
         index1 = sorted_ids.index(str(team1.id))
         index2 = sorted_ids.index(str(team2.id))
@@ -119,17 +130,34 @@ class update_elo(commands.Cog):
         elo2 = leaderboard[str(team2.id)]["elo"]
         elo_diff = abs(elo1 - elo2)
 
-        if (winner == higherPos and multiplicator >= 2) or (winner == higherPos and elo_diff > 65):
-            winnerElo = baseElo // 2.5
-            loosingElo = baseElo // 2
+        ff = False
+
+        if set1_team1_score + set1_team2_score == 25:
+            if set2_team1_score + set2_team2_score == 25:
+
+                ff = True
+
+                winnerElo = baseElo + 5
+                loosingElo = baseElo
+
+
+        elif (winner == higherPos and multiplicator >= 2) or (winner == higherPos and elo_diff > 65):
+            winnerElo = baseElo
+            loosingElo = baseElo * 2
         elif (winner == lowerPos and multiplicator >= 2) or (winner == lowerPos and elo_diff > 65):
             winnerElo = baseElo * multiplicator
-            loosingElo = baseElo * multiplicator
+            loosingElo = (baseElo * 2) + eloBonus // 2
         else:
-            winnerElo = baseElo + 2
+            winnerElo = baseElo + 5
             loosingElo = baseElo
 
+        # --- Bonus anwenden ---
+        if ff == True:
+            winnerElo += (eloBonus // 3)
+        else:
+            winnerElo += eloBonus
 
+        # --- ELO Updates ---
         oldEloWinner = leaderboard[winner_id]["elo"]
         oldEloLooser = leaderboard[looser_id]["elo"]
 
@@ -140,7 +168,14 @@ class update_elo(commands.Cog):
         teams[looser_id]["elo"] = leaderboard[looser_id]["elo"]
 
         save_config(config)
-        await self.send_results_embed(interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser, set1_team1_score, set1_team2_score, set1_winner, set2_team1_score, set2_team2_score, set2_winner, set3_team1_score, set3_team2_score, set3_winner, config, guild_id, match_type)
+
+        await self.send_results_embed(
+            interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser,
+            set1_team1_score, set1_team2_score, set1_winner,
+            set2_team1_score, set2_team2_score, set2_winner,
+            set3_team1_score, set3_team2_score, set3_winner,
+            config, guild_id, match_type, ff
+        )
 
 
 async def setup(bot: commands.Bot):

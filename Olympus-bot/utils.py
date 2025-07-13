@@ -52,7 +52,7 @@ async def update_leaderboard(interaction):
                 inline=False
             )
 
-    leaderboardChannel = interaction.guild.get_channel(1353503349768716318)
+    leaderboardChannel = interaction.guild.get_channel(1387864642738458805)
 
     await leaderboardChannel.purge(limit=30)
     await leaderboardChannel.send(embed=embed)
