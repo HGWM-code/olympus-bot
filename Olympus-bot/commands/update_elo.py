@@ -9,7 +9,13 @@ class update_elo(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    async def send_results_embed(self, interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser, set1_team1_score, set1_team2_score, set1_winner, set2_team1_score, set2_team2_score, set2_winner, set3_team1_score, set3_team2_score, set3_winner, config, guild_id, match_type, ff):
+    async def send_results_embed(
+        self, interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser,
+        set1_team1_score, set1_team2_score, set1_winner,
+        set2_team1_score, set2_team2_score, set2_winner,
+        set3_team1_score, set3_team2_score, set3_winner,
+        config, guild_id, match_type, ff
+    ):
         winnerElo = leaderboard[str(winner.id)]["elo"]
         looserElo = leaderboard[str(looser.id)]["elo"]
 
@@ -26,10 +32,12 @@ class update_elo(commands.Cog):
         elif set2_winner == looser:
             team2SetCounter += 1
 
-        if set3_team1_score == 0 and set3_team2_score == 0:
-            set3 = f"\n"
-        elif set3_winner == winner:
-            team1SetCounter += 1
+        set3 = ""
+        if set3_team1_score != 0 or set3_team2_score != 0:
+            if set3_winner == winner:
+                team1SetCounter += 1
+            elif set3_winner == looser:
+                team2SetCounter += 1
             set3 = f"\n**3. Set: {int(set3_team1_score)} - {int(set3_team2_score)} | {set3_winner.mention} **\n"
 
         config["server"][guild_id]["teams"][str(looser.id)]["record_loses"] += 1
@@ -40,20 +48,17 @@ class update_elo(commands.Cog):
 
         save_config(config)
 
-        if ff == True:
-            ff_text = "(Surrender)"
-        else: 
-            ff_text = ""
+        ff_text = "(Surrender)" if ff else ""
 
         embed = discord.Embed(
-            title=f"{match_type.name} - Match Result \n {ff_text}",
+            title=f"{match_type.name} - Match Result {ff_text}",
             description=(
                 f"**{winner.mention}** vs **{looser.mention}**\n\n"
                 f"**Sets: {team1SetCounter} - {team2SetCounter} **\n\n"
-                f"**1. Set: {set1_team1_score} - {set1_team2_score}  |  {set1_winner.mention} **\n"
-                f"**2. Set: {set2_team1_score} - {set2_team2_score}  |  {set2_winner.mention} **"
+                f"**1. Set: {set1_team1_score} - {set1_team2_score} | {set1_winner.mention} **\n"
+                f"**2. Set: {set2_team1_score} - {set2_team2_score} | {set2_winner.mention} **"
                 f"{set3}"
-                f"**Winner:** {winner.mention}\n"
+                f"\n**Winner:** {winner.mention}\n"
                 f"ELO: **{int(oldEloWinner)}** → **{int(winnerElo)}** (+{int(abs(winnerElo - oldEloWinner))})\n\n"
                 f"**Loser:** {looser.mention}\n"
                 f"ELO: **{int(oldEloLooser)}** → **{int(looserElo)}** (-{int(abs(looserElo - oldEloLooser))})"
@@ -61,7 +66,7 @@ class update_elo(commands.Cog):
             color=discord.Color.green()
         )
 
-        result_channel = interaction.guild.get_channel(1387116562292408400)
+        result_channel = interaction.guild.get_channel(1387864592255811725)
         await result_channel.send(embed=embed)
         await update_leaderboard(interaction)
 
@@ -72,13 +77,22 @@ class update_elo(commands.Cog):
             app_commands.Choice(name="League-Match", value="league-match")
         ]
     )
-    async def update_elo(self, interaction: discord.Interaction, match_type: app_commands.Choice[str], team1: discord.Role, team2: discord.Role, winner: discord.Role, set1_team1_score: int, set1_team2_score: int, set1_winner: discord.Role, set2_team1_score: int, set2_team2_score: int, set2_winner: discord.Role, set3_team1_score: int, set3_team2_score: int, set3_winner: discord.Role):
+    async def update_elo(
+        self, interaction: discord.Interaction, match_type: app_commands.Choice[str],
+        team1: discord.Role, team2: discord.Role, winner: discord.Role,
+        set1_team1_score: int, set1_team2_score: int, set1_winner: discord.Role,
+        set2_team1_score: int, set2_team2_score: int, set2_winner: discord.Role,
+        set3_team1_score: int, set3_team2_score: int, set3_winner: discord.Role
+    ):
         has_permission = any(role.name == "elo-perms" for role in interaction.user.roles)
 
         if not has_permission:
-            await interaction.response.send_message("You need the `elo-perms` role to use this command.", ephemeral=True)
-            return 
-        
+            await interaction.response.send_message("You need the elo-perms role to use this command.", ephemeral=True)
+            return
+
+        # DEFER RESPONSE TO AVOID TIMEOUT
+        await interaction.response.defer(ephemeral=True)
+
         config = load_config()
         guild_id = str(interaction.guild.id)
         teams = config["server"][guild_id]["teams"]
@@ -88,21 +102,22 @@ class update_elo(commands.Cog):
         loosingElo = 10
 
         if any(team.name == "@everyone" for team in [team1, team2, winner]):
-            await interaction.response.send_message("You cannot use @everyone.", ephemeral=True)
+            await interaction.followup.send("You cannot use @everyone.", ephemeral=True)
             return
 
         if winner not in [team1, team2]:
-            await interaction.response.send_message("The winner must be one of the two selected teams.", ephemeral=True)
+            await interaction.followup.send("The winner must be one of the two selected teams.", ephemeral=True)
             return
 
         if str(team1.id) not in teams or str(team2.id) not in teams:
-            await interaction.response.send_message("One or both teams are not registered.", ephemeral=True)
+            await interaction.followup.send("One or both teams are not registered.", ephemeral=True)
             return
 
         looser = team2 if winner == team1 else team1
         winner_id = str(winner.id)
         looser_id = str(looser.id)
 
+        # --- BONUS Calculation ---
         eloBonus = 0
         sorted_leaderboard = sorted(leaderboard.items(), key=lambda x: x[1]["elo"], reverse=True)
         top5_ids = [team_id for team_id, _ in sorted_leaderboard[:7]]
@@ -112,6 +127,7 @@ class update_elo(commands.Cog):
         looser_bonus = bonus_map[top5_ids.index(looser_id)] if looser_id in top5_ids else 0
         eloBonus = max(winner_bonus, looser_bonus)
 
+        # --- Ranking Position Difference ---
         sorted_ids = list(leaderboard.keys())
         index1 = sorted_ids.index(str(team1.id))
         index2 = sorted_ids.index(str(team2.id))
@@ -129,31 +145,39 @@ class update_elo(commands.Cog):
         elo_diff = abs(elo1 - elo2)
 
         ff = False
-
-        if set1_team1_score + set1_team2_score == 25:
-            if set2_team1_score + set2_team2_score == 25:
-
-                ff = True
-
-                winnerElo = baseElo + 5
-                loosingElo = baseElo
-
-
-        elif (winner == higherPos and multiplicator >= 2) or (winner == higherPos and elo_diff > 65):
-            winnerElo = baseElo
-            loosingElo = baseElo * 2
-        elif (winner == lowerPos and multiplicator >= 2) or (winner == lowerPos and elo_diff > 65):
-            winnerElo = baseElo * multiplicator
-            loosingElo = (baseElo * 2) + eloBonus // 2
-        else:
+        # --- Surrender Check ---
+        if set1_team1_score + set1_team2_score == 25 and set2_team1_score + set2_team2_score == 25:
+            ff = True
             winnerElo = baseElo + 5
-            loosingElo = baseElo
+            loosingElo = loosingElo
+        elif (winner == higherPos and multiplicator >= 2) or (winner == higherPos and elo_diff > 65):
 
-        if ff == True:
-            winnerElo += (eloBonus // 3)
+            if multiplicator >= 6 or elo_diff > 300:
+                baseElo = 5
+                if multiplicator >= 9 or elo_diff > 500:
+                    baseElo = 3
+
+            eloReduce = True
+            winnerElo = baseElo
+            loosingElo = loosingElo * 2
+        elif (winner == lowerPos and multiplicator >= 2) or (winner == lowerPos and elo_diff > 65):
+            eloReduce = False
+            winnerElo = baseElo * multiplicator
+            loosingElo = (loosingElo * 2) + eloBonus // 2
         else:
-            winnerElo += eloBonus
+            eloReduce = False
+            pointsBonus = (
+                abs(set1_team1_score - set1_team2_score) +
+                abs(set2_team1_score - set2_team2_score) +
+                abs(set3_team1_score - set3_team2_score) / 4
+            )
+            winnerElo = baseElo + 5 + pointsBonus
+            loosingElo = loosingElo
 
+        # --- Apply Bonus ---
+        winnerElo += (eloBonus // 4) if ff or eloReduce else eloBonus
+
+        # --- Update ELO ---
         oldEloWinner = leaderboard[winner_id]["elo"]
         oldEloLooser = leaderboard[looser_id]["elo"]
 
@@ -165,6 +189,7 @@ class update_elo(commands.Cog):
 
         save_config(config)
 
+        # --- Send Result ---
         await self.send_results_embed(
             interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser,
             set1_team1_score, set1_team2_score, set1_winner,

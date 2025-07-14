@@ -19,7 +19,6 @@ class register(commands.Cog):
             color=0x57F287
         )
         await interaction.channel.send(embed=embed)
-        await interaction.response.send_message("Team registered", ephemeral=True)
 
     @app_commands.command(name="register", description="Register a Team for the Elo-Rating")
     async def register(self, interaction: discord.Interaction, team: discord.Role):
@@ -43,16 +42,17 @@ class register(commands.Cog):
 
             leaderboard = config["server"][str(guild_id)]["leaderboard"]
 
-            if team not in leaderboard:
+            if str(team.id) not in leaderboard:
                 config["server"][str(guild_id)]["teams"][team.id] = {"alias": team.name, "elo": 1000, "record_wins": 0, "record_loses": 0}
                 config["server"][str(guild_id)]["leaderboard"][team.id] = {"alias": team.name, "elo": 1000, "record_wins": 0, "record_loses": 0}
 
                 save_config(config)
-            
+
                 await register.send_success_embed(interaction, team)
                 await update_leaderboard(interaction)
             else:
                 await interaction.response.send_message("The Team you are trying to register is already registered.", ephemeral=True)
+        
 
 
 async def setup(bot: commands.Bot):

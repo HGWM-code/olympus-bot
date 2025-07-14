@@ -5,7 +5,7 @@ from discord.ui import View, Button
 import math
 
 CONFIG_PATH = "config.json"
-TEAMS_PER_PAGE = 7
+TEAMS_PER_PAGE = 7 
 
 def load_config():
     try:
@@ -20,13 +20,13 @@ def save_config(data):
 
 class LeaderboardView(View):
     def __init__(self, pages):
-        super().__init__(timeout=120)
+        super().__init__(timeout=None)
         self.pages = pages
         self.current_page = 0
         self.message = None
 
-        self.prev_button = Button(label="◀️ Zurück", style=discord.ButtonStyle.primary)
-        self.next_button = Button(label="Weiter ▶️", style=discord.ButtonStyle.primary)
+        self.prev_button = Button(label="Previous", style=discord.ButtonStyle.primary)
+        self.next_button = Button(label="Next", style=discord.ButtonStyle.primary)
 
         self.prev_button.callback = self.prev_page
         self.next_button.callback = self.next_page
@@ -47,20 +47,26 @@ class LeaderboardView(View):
         if self.current_page > 0:
             self.current_page -= 1
             await self.update_buttons()
-            await interaction.response.defer()
+        await interaction.response.defer()
 
     async def next_page(self, interaction: discord.Interaction):
         if self.current_page < len(self.pages) - 1:
             self.current_page += 1
             await self.update_buttons()
-            await interaction.response.defer()
+        await interaction.response.defer()
 
-async def update_leaderboard(interaction):
+async def update_leaderboard(interaction: discord.Interaction):
     config = load_config()
     server_id = str(interaction.guild.id)
-    leaderboard = config["server"][server_id]["leaderboard"]
 
-    sortedLeaderboard = OrderedDict(
+    if server_id not in config["server"]:
+        await interaction.followup.send("Server data not found.", ephemeral=True)
+        return
+
+    leaderboard = config["server"][server_id].get("leaderboard", {})
+    teams = config["server"][server_id].get("teams", {})
+
+    sorted_leaderboard = OrderedDict(
         sorted(
             leaderboard.items(),
             key=lambda item: item[1]["elo"],
@@ -68,48 +74,62 @@ async def update_leaderboard(interaction):
         )
     )
 
-    config["server"][server_id]["leaderboard"] = dict(sortedLeaderboard)
+    config["server"][server_id]["leaderboard"] = dict(sorted_leaderboard)
     save_config(config)
 
+    entries = list(sorted_leaderboard.items())
     medals = ["🥇", "🥈", "🥉", "🏅", "🏅"]
-    entries = list(sortedLeaderboard.items())
-    total_pages = math.ceil(len(entries) / TEAMS_PER_PAGE)
+
+    ranked_teams = []
+    for team_id, team_data in entries:
+        role = interaction.guild.get_role(int(team_id))
+        if not role:
+            continue
+        team_info = teams.get(str(role.id))
+        if not team_info:
+            continue
+        ranked_teams.append((role, team_data, team_info))
+
+    total_pages = math.ceil(len(ranked_teams) / TEAMS_PER_PAGE)
     pages = []
 
     for page_num in range(total_pages):
         embed = discord.Embed(
-            title=f"🏆 Leaderboard (Seite {page_num+1}/{total_pages})",
-            description="Aktuelle Team-Rangliste nach ELO",
+            title=f"Leaderboard (Page {page_num + 1}/{total_pages})",
+            description="Current team rankings by ELO",
             color=discord.Color.gold()
         )
 
-        for i in range(TEAMS_PER_PAGE):
-            index = page_num * TEAMS_PER_PAGE + i
-            if index >= len(entries):
-                break
+        start = page_num * TEAMS_PER_PAGE
+        end = start + TEAMS_PER_PAGE
 
-            team_id, team_data = entries[index]
-            role = interaction.guild.get_role(int(team_id))
-            if not role:
-                continue
+        for i, (role, team_data, team_info) in enumerate(ranked_teams[start:end], start=start + 1):
+            record_wins = team_info.get("record_wins", 0)
+            record_loses = team_info.get("record_loses", 0)
+            medal = medals[i - 1] if i <= len(medals) else f"{i}."
 
-            team_info = config["server"][server_id]["teams"].get(str(role.id), {})
-            wins = team_info.get("record_wins", 0)
-            losses = team_info.get("record_loses", 0)
-
-            medal = medals[index] if index < len(medals) else f"**{index+1}.)**"
             embed.add_field(
-                name="‎",
-                value=f"{medal} {role.mention}\nELO: **{int(team_data['elo'])}**\nRecord: **Wins: {wins}** - **Losses: {losses}**",
+                name="\u200b",
+                value=f"{medal} {role.mention}\nELO: {int(team_data['elo'])}\nRecord: Wins: {record_wins} - Losses: {record_loses}",
                 inline=False
             )
 
         pages.append(embed)
 
-    leaderboard_channel = interaction.guild.get_channel(1353503349768716318)
-    await leaderboard_channel.purge(limit=30)
+    leaderboard_channel = interaction.guild.get_channel(1387864642738458805)
+    if leaderboard_channel is None:
+        await interaction.followup.send("Leaderboard channel not found.", ephemeral=True)
+        return
 
-    view = LeaderboardView(pages)
-    await view.send(leaderboard_channel)
+    try:
+        await leaderboard_channel.purge(limit=30)
+        view = LeaderboardView(pages)
+        await view.send(leaderboard_channel)
+    except discord.Forbidden:
+        await interaction.followup.send("Missing permissions to manage messages in the leaderboard channel.", ephemeral=True)
+        return
+    except discord.HTTPException as e:
+        await interaction.followup.send(f"An error occurred while sending the leaderboard: {e}", ephemeral=True)
+        return
 
-    await interaction.response.send_message("📊 Leaderboard wurde aktualisiert – mit Seitenansicht!", ephemeral=True)
+    await interaction.followup.send("Leaderboard has been updated.", ephemeral=True)
