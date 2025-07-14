@@ -116,7 +116,7 @@ async def update_leaderboard(interaction: discord.Interaction):
 
         pages.append(embed)
 
-    leaderboard_channel = interaction.guild.get_channel(1387864642738458805)
+    leaderboard_channel = interaction.guild.get_channel(1353503349768716318)
     if leaderboard_channel is None:
         await interaction.followup.send("Leaderboard channel not found.", ephemeral=True)
         return

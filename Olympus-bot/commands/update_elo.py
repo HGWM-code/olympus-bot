@@ -66,7 +66,7 @@ class update_elo(commands.Cog):
             color=discord.Color.green()
         )
 
-        result_channel = interaction.guild.get_channel(1387864592255811725)
+        result_channel = interaction.guild.get_channel(1387116562292408400)
         await result_channel.send(embed=embed)
         await update_leaderboard(interaction)
 
