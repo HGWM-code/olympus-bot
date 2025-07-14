@@ -49,8 +49,10 @@ class register(commands.Cog):
 
                 save_config(config)
             
-            await register.send_success_embed(interaction, team)
-            await update_leaderboard(interaction)
+                await register.send_success_embed(interaction, team)
+                await update_leaderboard(interaction)
+            else:
+                await interaction.response.send_message("The Team you are trying to register is already registered.", ephemeral=True)
 
 
 async def setup(bot: commands.Bot):
