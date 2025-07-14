@@ -12,7 +12,7 @@ class unregister(commands.Cog):
         self.bot = bot
 
     @app_commands.command(name="unregister", description="Unregister a Team for the Elo-Rating")
-    async def register(self, interaction: discord.Interaction, team: discord.Role):
+    async def unregister(self, interaction: discord.Interaction, team: discord.Role):
         has_permission = any(role.name == "elo-perms" for role in interaction.user.roles)
 
         if not has_permission:

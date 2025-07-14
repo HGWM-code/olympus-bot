@@ -12,7 +12,7 @@ class set_record(commands.Cog):
         self.bot = bot
 
     @app_commands.command(name="set-record", description="Set the Record of a Team")
-    async def register(self, interaction: discord.Interaction, team: discord.Role, record_wins: int, record_losses: int):
+    async def set_record(self, interaction: discord.Interaction, team: discord.Role, record_wins: int, record_losses: int):
         has_permission = any(role.name == "elo-perms" for role in interaction.user.roles)
 
         if not has_permission:
