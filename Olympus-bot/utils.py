@@ -78,7 +78,7 @@ async def update_leaderboard(interaction: discord.Interaction):
     save_config(config)
 
     entries = list(sorted_leaderboard.items())
-    medals = ["🥇", "🥈", "🥉", "🏅", "🏅"]
+    medals = [":first_place:", ":second_place:", ":third_place:", ":military_medal:", ":military_medal:"]
 
     ranked_teams = []
     for team_id, team_data in entries:

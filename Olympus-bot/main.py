@@ -42,8 +42,10 @@ async def load_cogs():
     await bot.load_extension('commands.register')
     await bot.load_extension('commands.unregister')
     await bot.load_extension('commands.update_elo')
+    await bot.load_extension('commands.debug_update_elo')
     await bot.load_extension('commands.set_elo')
     await bot.load_extension('commands.set_record')
+    await bot.load_extension('commands.challange')
 
 async def main():
     try:

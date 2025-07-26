@@ -13,11 +13,11 @@ class set_record(commands.Cog):
 
     @app_commands.command(name="set-record", description="Set the Record of a Team")
     async def set_record(self, interaction: discord.Interaction, team: discord.Role, record_wins: int, record_losses: int):
-        has_permission = any(role.name == "elo-perms" for role in interaction.user.roles)
+        has_permission = any(role.name == "[OLY] Elo-Perms" for role in interaction.user.roles)
 
         if not has_permission:
             await interaction.response.send_message(
-                "You need the `elo-perms` role to use this command.",
+                "You need the `[OLY] Elo-Perms` role to use this command.",
                 ephemeral=True
             )
             return 

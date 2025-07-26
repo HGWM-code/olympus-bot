@@ -13,11 +13,11 @@ class set_elo(commands.Cog):
 
     @app_commands.command(name="set-elo", description="Set the Elo for a Team")
     async def set_elo(self, interaction: discord.Interaction, team: discord.Role, elo: int):
-        has_permission = any(role.name == "elo-perms" for role in interaction.user.roles)
+        has_permission = any(role.name == "[OLY] Elo-Perms" for role in interaction.user.roles)
 
         if not has_permission:
             await interaction.response.send_message(
-                "You need the `elo-perms` role to use this command.",
+                "You need the `[OLY] Elo-Perms` role to use this command.",
                 ephemeral=True
             )
             return 
