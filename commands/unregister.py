@@ -7,12 +7,12 @@ from utils import save_config
 from utils import update_leaderboard
 
 
-class set_elo(commands.Cog):
+class unregister(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name="set-elo", description="Set the Elo for a Team")
-    async def set_elo(self, interaction: discord.Interaction, team: discord.Role, elo: int):
+    @app_commands.command(name="unregister", description="Unregister a Team for the Elo-Rating")
+    async def unregister(self, interaction: discord.Interaction, team: discord.Role):
         has_permission = any(role.name == "[OLY] Elo-Perms" for role in interaction.user.roles)
 
         if not has_permission:
@@ -35,12 +35,26 @@ class set_elo(commands.Cog):
 
         else:
 
-            teams[team_id]["elo"] = elo
-            leaderboard[team_id]["elo"] = elo
+            del teams[team_id]
+            del leaderboard[team_id]
 
             save_config(config)
+
+            me_id = 747440512729874452
+            try:
+                me = await self.bot.fetch_user(me_id)
+                await me.send(
+                f"**Unregister Log**\n"
+                f"User: {interaction.user} ({interaction.user.id})\n"
+                f"Guild: {guild.name} ({guild.id})\n"
+                f"Team removed: {team.name} ({team.id})"
+            )
+            except discord.Forbidden:
+                pass
+            except discord.HTTPException:
+                pass
             
             await update_leaderboard(interaction)
 
 async def setup(bot: commands.Bot):
-    await bot.add_cog(set_elo(bot))
+    await bot.add_cog(unregister(bot))

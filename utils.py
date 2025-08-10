@@ -5,7 +5,7 @@ from discord.ui import View, Button
 import math
 
 CONFIG_PATH = "config.json"
-TEAMS_PER_PAGE = 7 
+TEAMS_PER_PAGE = 5 
 
 def load_config():
     try:
@@ -106,11 +106,15 @@ async def update_leaderboard(interaction: discord.Interaction):
         for i, (role, team_data, team_info) in enumerate(ranked_teams[start:end], start=start + 1):
             record_wins = team_info.get("record_wins", 0)
             record_loses = team_info.get("record_loses", 0)
+            captain = team_info.get("captain", "---")
+
+            captain_lb = f"<@{captain}>" if captain != "---" else "---"
+
             medal = medals[i - 1] if i <= len(medals) else f"{i}."
 
             embed.add_field(
                 name="\u200b",
-                value=f"{medal} {role.mention}\nELO: {int(team_data['elo'])}\nRecord: Wins: {record_wins} - Losses: {record_loses}",
+                value=f"{medal} {role.mention}  -  **Captain:** {captain_lb}\n**ELO**: {int(team_data['elo'])}\n**Record: Wins**: {record_wins} - **Losses**: {record_loses}",
                 inline=False
             )
 

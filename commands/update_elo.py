@@ -14,7 +14,7 @@ class update_elo(commands.Cog):
         set1_team1_score, set1_team2_score, set1_winner,
         set2_team1_score, set2_team2_score, set2_winner,
         set3_team1_score, set3_team2_score, set3_winner,
-        config, guild_id, match_type, ff
+        config, guild_id, match_type, ff, interactionUser
     ):
         winnerElo = leaderboard[str(winner.id)]["elo"]
         looserElo = leaderboard[str(looser.id)]["elo"]
@@ -59,12 +59,14 @@ class update_elo(commands.Cog):
                 f"**2. Set: {set2_team1_score} - {set2_team2_score} | {set2_winner.mention} **"
                 f"{set3}"
                 f"\n**Winner:** {winner.mention}\n"
-                f"ELO: **{int(oldEloWinner)}** ? **{int(winnerElo)}** (+{int(abs(winnerElo - oldEloWinner))})\n\n"
+                f"ELO: **{int(oldEloWinner)}** -> **{int(winnerElo)}** (+{int(abs(winnerElo - oldEloWinner))})\n\n"
                 f"**Loser:** {looser.mention}\n"
-                f"ELO: **{int(oldEloLooser)}** ? **{int(looserElo)}** (-{int(abs(looserElo - oldEloLooser))})"
+                f"ELO: **{int(oldEloLooser)}** -> **{int(looserElo)}** (-{int(abs(looserElo - oldEloLooser))})"
             ),
             color=discord.Color.green()
         )
+
+        embed.description += f"\n\nsent by {interactionUser.mention}"
 
         result_channel = interaction.guild.get_channel(1387116562292408400)
         await result_channel.send(embed=embed)
@@ -141,7 +143,7 @@ class update_elo(commands.Cog):
         elo_diff = abs(elo1-elo2)
 
         ff = False
-        # --- Surrender Check ---
+         # --- Surrender Check ---
         if set1_team1_score + set1_team2_score == 25 and set2_team1_score + set2_team2_score == 25:
             ff = True
             winnerElo = baseElo + 5
@@ -185,13 +187,14 @@ class update_elo(commands.Cog):
 
         save_config(config)
 
+        interactionUser = interaction.user
         # --- Send Result ---
         await self.send_results_embed(
             interaction, winner, looser, leaderboard, oldEloWinner, oldEloLooser,
             set1_team1_score, set1_team2_score, set1_winner,
             set2_team1_score, set2_team2_score, set2_winner,
             set3_team1_score, set3_team2_score, set3_winner,
-            config, guild_id, match_type, ff
+            config, guild_id, match_type, ff, interactionUser
         )
 
 

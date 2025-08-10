@@ -3,218 +3,392 @@
         "1353495274579824802": {
             "teams": {
                 "1354363201780715571": {
-                    "alias": "Phantom",
-                    "elo": 1648,
-                    "record_wins": 8,
-                    "record_loses": 4
-                },
-                "1354363323759464570": {
-                    "alias": "Net Force",
-                    "elo": 1516,
+                    "alias": "PHANTOM",
+                    "elo": 1314,
                     "record_wins": 2,
-                    "record_loses": 4
+                    "record_loses": 0,
+                    "captain": 705581574321602561,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
                 },
                 "1383070003829669908": {
-                    "alias": "Kyojin",
-                    "elo": 1701,
-                    "record_wins": 16,
-                    "record_loses": 9
-                },
-                "1379813258000728166": {
-                    "alias": "Yusha",
-                    "elo": 1337,
-                    "record_wins": 6,
-                    "record_loses": 7
-                },
-                "1368246866176901120": {
-                    "alias": "Nemesis",
-                    "elo": 1256,
-                    "record_wins": 5,
-                    "record_loses": 10
-                },
-                "1383597865703833672": {
-                    "alias": "Misery",
-                    "elo": 1143,
-                    "record_wins": 1,
-                    "record_loses": 3
-                },
-                "1382673444797415555": {
-                    "alias": "Venus",
-                    "elo": 1152,
-                    "record_wins": 6,
-                    "record_loses": 7
-                },
-                "1384063796754124830": {
-                    "alias": "Berserk",
-                    "elo": 1090,
-                    "record_wins": 8,
-                    "record_loses": 3
-                },
-                "1379117982298407095": {
-                    "alias": "Blazing Hawks",
-                    "elo": 1056,
-                    "record_wins": 2,
-                    "record_loses": 2
-                },
-                "1358154740306809023": {
-                    "alias": "/Espada",
-                    "elo": 1098,
+                    "alias": "Miracles",
+                    "elo": 1300,
                     "record_wins": 0,
-                    "record_loses": 5
-                },
-                "1390329173112782949": {
-                    "alias": "SNK",
-                    "elo": 1010,
-                    "record_wins": 1,
-                    "record_loses": 0
-                },
-                "1390359712662552660": {
-                    "alias": "Miyamoto",
-                    "elo": 1000,
-                    "record_wins": 1,
-                    "record_loses": 1
-                },
-                "1354362855511691334": {
-                    "alias": "Azure",
-                    "elo": 1112,
-                    "record_wins": 3,
-                    "record_loses": 1
-                },
-                "1393608663767449621": {
-                    "alias": "Solace",
-                    "elo": 950,
-                    "record_wins": 0,
-                    "record_loses": 2
+                    "record_loses": 0,
+                    "captain": 501052553526771722,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
                 },
                 "1381243727649046678": {
                     "alias": "HellVerse",
-                    "elo": 1378.0,
-                    "record_wins": 7,
-                    "record_loses": 4
+                    "elo": 1240,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 969257551617216592,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
                 },
-                "1394052397092962354": {
-                    "alias": "Tilited-Towers",
-                    "elo": 1050,
-                    "record_wins": 1,
-                    "record_loses": 0
+                "1393608663767449621": {
+                    "alias": "Solace",
+                    "elo": 1190,
+                    "record_wins": 0,
+                    "record_loses": 1,
+                    "captain": 706248408855478403,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1384063796754124830": {
+                    "alias": "Berserk",
+                    "elo": 1180,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 853000262310297610,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1382673444797415555": {
+                    "alias": "Venus",
+                    "elo": 1130,
+                    "record_wins": 0,
+                    "record_loses": 1,
+                    "captain": 1008593427363012728,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402919551901106268": {
+                    "alias": "SNK",
+                    "elo": 1120,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 470938784024756224,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1397166622724325437": {
+                    "alias": "Isshin",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 720582826067623976,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1400556179041816586": {
+                    "alias": "Sunacchi",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1336271609836732448,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1401452114575884319": {
+                    "alias": "Rising Suns",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 687585429452488740,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1401651410495602869": {
+                    "alias": "Mistake",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 811624930269069362,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1401959330978205706": {
+                    "alias": "Sanity",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 894262704016064603,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1401961326926106674": {
+                    "alias": "86",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1007420539092074557,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402232738576072734": {
+                    "alias": "MSBY Black Jackals",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1354189498547965974,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402470130570625065": {
+                    "alias": "Soren",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1320442273045151896,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402638882847326348": {
+                    "alias": "Shi",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 954817635135148062,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402692450094682244": {
+                    "alias": "Espada",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1263705750094745712,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402716486862377090": {
+                    "alias": "Valkyrie",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 443885876884406272,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402742573516197888": {
+                    "alias": "Furok\u014d",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 943914567648550992,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1403063475743232162": {
+                    "alias": "Shoelaces",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1100772184940626012,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
+                },
+                "1402699077019242627": {
+                    "alias": "Schweiden",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1344051304250478704,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {}
+                    }
                 }
             },
             "leaderboard": {
-                "1383070003829669908": {
-                    "alias": "Kyojin",
-                    "elo": 1701,
-                    "record_wins": 16,
-                    "record_loses": 9
-                },
                 "1354363201780715571": {
-                    "alias": "Phantom",
-                    "elo": 1648,
-                    "record_wins": 8,
-                    "record_loses": 4
-                },
-                "1354363323759464570": {
-                    "alias": "Net Force",
-                    "elo": 1516,
+                    "alias": "PHANTOM",
+                    "elo": 1314,
                     "record_wins": 2,
-                    "record_loses": 4
+                    "record_loses": 0
+                },
+                "1383070003829669908": {
+                    "alias": "Miracles",
+                    "elo": 1300,
+                    "record_wins": 0,
+                    "record_loses": 0
                 },
                 "1381243727649046678": {
                     "alias": "HellVerse",
-                    "elo": 1378.0,
-                    "record_wins": 8,
-                    "record_loses": 4
-                },
-                "1379813258000728166": {
-                    "alias": "Yusha",
-                    "elo": 1337,
-                    "record_wins": 6,
-                    "record_loses": 7
-                },
-                "1368246866176901120": {
-                    "alias": "Nemesis",
-                    "elo": 1256,
-                    "record_wins": 5,
-                    "record_loses": 10
-                },
-                "1382673444797415555": {
-                    "alias": "Venus",
-                    "elo": 1152,
-                    "record_wins": 6,
-                    "record_loses": 7
-                },
-                "1383597865703833672": {
-                    "alias": "Misery",
-                    "elo": 1143,
-                    "record_wins": 1,
-                    "record_loses": 3
-                },
-                "1354362855511691334": {
-                    "alias": "Azure",
-                    "elo": 1112,
-                    "record_wins": 3,
-                    "record_loses": 1
-                },
-                "1358154740306809023": {
-                    "alias": "/Espada",
-                    "elo": 1098,
+                    "elo": 1240,
                     "record_wins": 0,
-                    "record_loses": 5
-                },
-                "1384063796754124830": {
-                    "alias": "Berserk",
-                    "elo": 1090,
-                    "record_wins": 8,
-                    "record_loses": 3
-                },
-                "1379117982298407095": {
-                    "alias": "Blazing Hawks",
-                    "elo": 1056,
-                    "record_wins": 2,
-                    "record_loses": 2
-                },
-                "1394052397092962354": {
-                    "alias": "Tilited-Towers",
-                    "elo": 1050,
-                    "record_wins": 1,
                     "record_loses": 0
-                },
-                "1390329173112782949": {
-                    "alias": "SNK",
-                    "elo": 1010,
-                    "record_wins": 1,
-                    "record_loses": 0
-                },
-                "1390359712662552660": {
-                    "alias": "Miyamoto",
-                    "elo": 1000,
-                    "record_wins": 1,
-                    "record_loses": 1
                 },
                 "1393608663767449621": {
                     "alias": "Solace",
-                    "elo": 950,
+                    "elo": 1190,
                     "record_wins": 0,
-                    "record_loses": 2
+                    "record_loses": 1
+                },
+                "1384063796754124830": {
+                    "alias": "Berserk",
+                    "elo": 1180,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1382673444797415555": {
+                    "alias": "Venus",
+                    "elo": 1130,
+                    "record_wins": 0,
+                    "record_loses": 1
+                },
+                "1402919551901106268": {
+                    "alias": "SNK",
+                    "elo": 1120,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1397166622724325437": {
+                    "alias": "Isshin",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1400556179041816586": {
+                    "alias": "Sunacchi",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1401452114575884319": {
+                    "alias": "Rising Suns",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1401651410495602869": {
+                    "alias": "Mistake",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1401959330978205706": {
+                    "alias": "Sanity",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1401961326926106674": {
+                    "alias": "86",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1402232738576072734": {
+                    "alias": "MSBY Black Jackals",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1402470130570625065": {
+                    "alias": "Soren",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1402638882847326348": {
+                    "alias": "Shi",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1402692450094682244": {
+                    "alias": "Espada",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1402716486862377090": {
+                    "alias": "Valkyrie",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1402742573516197888": {
+                    "alias": "Furok\u014d",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1403063475743232162": {
+                    "alias": "Shoelaces",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1402699077019242627": {
+                    "alias": "Schweiden",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
                 }
-            }
+            },
+            "join_cooldowns": {}
         },
         "1387531673230512182": {
-            "teams": {
-                "1387701340410740836": {
-                    "alias": "Test Team 1",
-                    "elo": 2000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                }
-            },
-            "leaderboard": {
-                "1387701340410740836": {
-                    "alias": "Test Team 1",
-                    "elo": 2000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                }
-            }
+            "teams": {},
+            "leaderboard": {},
+            "join_cooldowns": {}
         }
     }
 }
