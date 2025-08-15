@@ -40,7 +40,7 @@ class Challenge(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    async def check_permission(self, interaction, user_roles, challenging_team_id, teams):
+    async def check_permission(self, interaction, user_roles, challenging_team_id, teams, challenged_team):
         """Check if the user has Captain or Vice Captain permissions in the challenging team."""
         has_permission = any(role.name == "[OLY] Captain" for role in user_roles) or any(role.name == "[OLY] Vice Captain" for role in user_roles)
         if not has_permission:
@@ -71,6 +71,26 @@ class Challenge(commands.Cog):
                 ephemeral=True
             )
             return False
+        
+        if "inactivity" not in teams[str(challenged_team.id)]:
+            teams[str(challenged_team.id)]["inactivity"] = False
+
+        if teams[str(challenged_team.id)]["inactivity"] == True:
+            await interaction.response.send_message(
+                f"The team <@&{str(challenged_team.id)}> is set as inactive and cannot be challanged.",
+                ephemeral=True
+            )
+            return False
+        
+        if "inactivity" not in teams[str(challenging_team_id.id)]:
+            teams[str(challenging_team_id.id)]["inactivity"] = False
+
+        if teams[str(challenging_team_id.id)]["inactivity"] == True:
+            await interaction.response.send_message(
+                f"The team <@&{str(challenging_team_id.id)}> is set as inactive and cannot be challanged.",
+                ephemeral=True
+            )
+            return False
 
         return True
 
@@ -84,7 +104,7 @@ class Challenge(commands.Cog):
         teams = config["server"][str(guild_id)]["teams"]
 
         # Check if the user has permissions in the challenging team
-        check_perms = await self.check_permission(interaction, interaction_user_roles, challenging_team.id, teams)
+        check_perms = await self.check_permission(interaction, interaction_user_roles, challenging_team.id, teams, challenged_team)
         if not check_perms:
             return
 

@@ -7,6 +7,7 @@ from discord.ui import Button, View
 import asyncio
 from utils import load_config
 from utils import save_config
+from utils import inacitivity_watcher
 
 load_dotenv()
 TOKEN = os.getenv('BOT__TOKEN')
@@ -46,8 +47,19 @@ async def on_ready():
         if "join_cooldowns" not in config["server"][guild_id]:
             config["server"][guild_id]["join_cooldowns"] = {}
 
-    save_config(config)
+        if "reload_leaderboard" not in config["server"][guild_id]:
+            config["server"][guild_id]["reload_leaderboard"] = False
         
+        for team_id in config["server"][guild_id]["teams"]:
+            if "inactivity" not in team_id:
+                team_id["inactivity"] = False
+            elif team_id["inactivity"] == True:
+                await inacitivity_watcher(team_id, guild)
+            else:
+                team_id["inactivity"] = False
+
+            save_config(config)
+    save_config(config)
 
 async def load_cogs():
     await bot.load_extension('commands.register')

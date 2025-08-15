@@ -3,6 +3,7 @@ import discord
 from collections import OrderedDict
 from discord.ui import View, Button
 import math
+import asyncio
 
 CONFIG_PATH = "config.json"
 TEAMS_PER_PAGE = 5 
@@ -17,6 +18,52 @@ def load_config():
 def save_config(data):
     with open(CONFIG_PATH, "w") as f:
         json.dump(data, f, indent=4)
+
+async def inacitivity_watcher(team_id, guild):
+        
+        guild_id = str(guild.id)
+        config = load_config()
+        teams = config["server"][str(guild_id)]["teams"]
+        team_inactivity = teams[team_id]["inactivity"]
+
+        if "hour_count" not in teams[team_id]:
+            teams[team_id]["hour_count"] = 0
+
+        if "day_count" not in teams[team_id]:
+            teams[team_id]["day_count"] = 0
+
+        save_config(config)
+        
+        hour_count = config["server"][str(guild_id)]["teams"][team_id]["hour_count"]
+        day_count = config["server"][str(guild_id)]["teams"][team_id]["day_count"]
+
+        while team_inactivity == True:
+            
+            if hour_count < 24:
+                hour_count + 1
+                teams[team_id]["elo"] - 50
+            elif hour_count == 24:
+                day_count + 1
+                hour_count = 0
+
+                if day_count == 6:
+                    day_count = 0
+                    old_elo = teams[team_id]["elo"]
+                    new_elo = teams[team_id]["elo"] - 50
+                    save_config(config)
+
+                    embed = discord.Embed(
+                        title=f"Inactivity Elo loss",
+                        description=(
+                            f"ELO: **{int(old_elo)}** -> **{int(new_elo)}** (-50)\n"
+                        ),
+                        color=discord.Color.red()
+                    )
+
+                    result_channel = guild.get_channel(1387116562292408400)
+                    await result_channel.send(embed=embed)
+
+            await asyncio.sleep(3600) #One hour
 
 class LeaderboardView(View):
     def __init__(self, pages):
