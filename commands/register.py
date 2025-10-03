@@ -37,6 +37,12 @@ class register(commands.Cog):
         guild_id = str(guild.id)
         config = load_config()
 
+        log_channel_id = config["server"][str(guild.id)]["setup"]["log_channel"] 
+
+        if log_channel_id is None:
+            await interaction.followup.send("Log channel is not set up.", ephemeral=True)
+            return
+
         server_data = config.setdefault("server", {}).setdefault(guild_id, {})
         teams = server_data.setdefault("teams", {})
         leaderboard = server_data.setdefault("leaderboard", {})
@@ -54,7 +60,8 @@ class register(commands.Cog):
             "member": {
                 "starters": {},
                 "subs": {},
-                "member": {}
+                "member": {},
+            "inactivity": False
             }
         }
 
@@ -66,11 +73,14 @@ class register(commands.Cog):
         }
 
         save_config(config)
+        
+        captain_role = discord.utils.get(guild.roles, name="[OLY] Captain")
+        member = await guild.fetch_member(captain.id)
+        await member.add_roles(captain_role, reason="Team add")
 
-        me_id = 747440512729874452
         try:
-                me = await self.bot.fetch_user(me_id)
-                await me.send(
+                log_channel = interaction.guild.get_channel(log_channel_id)
+                await log_channel.send(
                 f"**Register Log**\n"
                 f"User: {interaction.user} ({interaction.user.id})\n"
                 f"Guild: {guild.name} ({guild.id})\n"

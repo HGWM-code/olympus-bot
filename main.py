@@ -46,20 +46,48 @@ async def on_ready():
 
         if "join_cooldowns" not in config["server"][guild_id]:
             config["server"][guild_id]["join_cooldowns"] = {}
-
-        if "reload_leaderboard" not in config["server"][guild_id]:
-            config["server"][guild_id]["reload_leaderboard"] = False
         
-        for team_id in config["server"][guild_id]["teams"]:
-            if "inactivity" not in team_id:
-                team_id["inactivity"] = False
-            elif team_id["inactivity"] == True:
+        teams_config = config["server"][guild_id]["teams"]
+        for team_id in teams_config:
+            if "inactivity" not in teams_config[team_id]:
+                teams_config[team_id]["inactivity"] = False
+                save_config(config)
+            elif teams_config[team_id]["inactivity"] == True:
                 await inacitivity_watcher(team_id, guild)
             else:
-                team_id["inactivity"] = False
+                teams_config[team_id]["inactivity"] = False
+                save_config(config)
+        
+        if "setup" not in config["server"][guild_id]:
+            config["server"][guild_id]["setup"] = {
+                "leaderboard_channel": None,
+                "elo_update_channel": None,
+                "elo_matches_category": None,
+                "transactions_channel": None,
+                "log_channel": None
+            }
+        save_config(config)
 
-            save_config(config)
-    save_config(config)
+@bot.event
+async def on_member_remove(member):
+    config = load_config()
+    guild_id = str(member.guild.id)
+    teams = config["server"].get(guild_id, {}).get("teams", {})
+
+    changed = False
+    for team_id, team_data in teams.items():
+        members_dict = team_data.get("member", {})
+        for key in ["starters", "subs", "member"]:
+            if key in members_dict and str(member.id) in members_dict[key]:
+                del members_dict[key][str(member.id)]
+                changed = True
+        # Remove as captain if needed
+        if str(team_data.get("captain")) == str(member.id):
+            team_data["captain"] = None
+            changed = True
+
+    if changed:
+        save_config(config)
 
 async def load_cogs():
     await bot.load_extension('commands.register')
@@ -77,6 +105,9 @@ async def load_cogs():
     await bot.load_extension('commands.list_member')
     await bot.load_extension('commands.add_team_permission')
     await bot.load_extension('commands.remove_team_permission')
+    await bot.load_extension('commands.set_inactivity')
+    await bot.load_extension('commands.set_active')
+    await bot.load_extension('commands.setup')
 
 async def main():
     try:

@@ -4,391 +4,2911 @@
             "teams": {
                 "1354363201780715571": {
                     "alias": "PHANTOM",
-                    "elo": 1314,
-                    "record_wins": 2,
-                    "record_loses": 0,
+                    "elo": 1759,
+                    "record_wins": 21,
+                    "record_loses": 5,
                     "captain": 705581574321602561,
                     "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1383070003829669908": {
-                    "alias": "Miracles",
-                    "elo": 1300,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 501052553526771722,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1381243727649046678": {
-                    "alias": "HellVerse",
-                    "elo": 1240,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 969257551617216592,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1393608663767449621": {
-                    "alias": "Solace",
-                    "elo": 1190,
-                    "record_wins": 0,
-                    "record_loses": 1,
-                    "captain": 706248408855478403,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1384063796754124830": {
-                    "alias": "Berserk",
-                    "elo": 1180,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 853000262310297610,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1382673444797415555": {
-                    "alias": "Venus",
-                    "elo": 1130,
-                    "record_wins": 0,
-                    "record_loses": 1,
-                    "captain": 1008593427363012728,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1402919551901106268": {
-                    "alias": "SNK",
-                    "elo": 1120,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 470938784024756224,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1397166622724325437": {
-                    "alias": "Isshin",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 720582826067623976,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1400556179041816586": {
-                    "alias": "Sunacchi",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 1336271609836732448,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1401452114575884319": {
-                    "alias": "Rising Suns",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 687585429452488740,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1401651410495602869": {
-                    "alias": "Mistake",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 811624930269069362,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1401959330978205706": {
-                    "alias": "Sanity",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 894262704016064603,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1401961326926106674": {
-                    "alias": "86",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 1007420539092074557,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
+                        "starters": {
+                            "1384855833262686288": {
+                                "permissions": {
+                                    "add-member": false,
+                                    "vize-captain": true
+                                }
+                            },
+                            "500188330366074891": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "954471983788199998": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "789760662682337301": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "730794022062522400": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "713081799554760826": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "721364182058139670": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {
+                            "1396705804723425290": {
+                                "position": "member",
+                                "rank": "member",
+                                "permissions": {}
+                            }
+                        }
+                    },
+                    "inactivity": false
                 },
                 "1402232738576072734": {
                     "alias": "MSBY Black Jackals",
-                    "elo": 1000,
+                    "elo": 930,
                     "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 1354189498547965974,
+                    "record_loses": 1,
+                    "captain": 1238258237762048101,
                     "member": {
-                        "starters": {},
+                        "starters": {
+                        },
                         "subs": {},
-                        "member": {}
-                    }
-                },
-                "1402470130570625065": {
-                    "alias": "Soren",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 1320442273045151896,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1402638882847326348": {
-                    "alias": "Shi",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 954817635135148062,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1402692450094682244": {
-                    "alias": "Espada",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 1263705750094745712,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1402716486862377090": {
-                    "alias": "Valkyrie",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 443885876884406272,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
-                },
-                "1402742573516197888": {
-                    "alias": "Furok\u014d",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 943914567648550992,
-                    "member": {
-                        "starters": {},
-                        "subs": {},
-                        "member": {}
-                    }
+                        "member": {
+                            "1238258237762048101": {
+                                "position": "member",
+                                "rank": "member",
+                                "permissions": {}
+                            }
+                        }
+                    },
+                    "inactivity": true,
+                    "hour_count": 0,
+                    "day_count": 0
                 },
                 "1403063475743232162": {
                     "alias": "Shoelaces",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0,
-                    "captain": 1100772184940626012,
+                    "elo": 1180,
+                    "record_wins": 16,
+                    "record_loses": 12,
+                    "captain": 618867205131730954,
                     "member": {
-                        "starters": {},
-                        "subs": {},
+                        "starters": {
+                            "768678035422576671": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1100772184940626012": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "511988595230507010": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {
+                                    "vize-captain": true,
+                                    "add-member": true
+                                }
+                            },
+                            "670748323614818304": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1408502876007039006": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "618867205131730954": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {
+                                    "vize-captain": true
+                                }
+                            },
+                            "1148190047833702520": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1351681068297621534": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {}
+                    },
+                    "inactivity": false
+                },
+                "1406559076963581982": {
+                    "alias": "Akai",
+                    "elo": 1051.0,
+                    "record_wins": 6,
+                    "record_loses": 6,
+                    "captain": 932721076289548319,
+                    "member": {
+                        "starters": {
+                            "932721076289548319": {
+                                "permissions": {
+                                }
+                            },
+                            "967560783544328192": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "778880043442896906": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1337448946007801899": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1227930088595521536": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
                         "member": {}
                     }
                 },
-                "1402699077019242627": {
-                    "alias": "Schweiden",
+                "1406558038030028840": {
+                    "alias": "EvanescencE",
+                    "elo": 996,
+                    "record_wins": 4,
+                    "record_loses": 5,
+                    "captain": 706213470504484902,
+                    "member": {
+                        "starters": {
+                            "706213470504484902": {
+                                "permissions": {
+                                }
+                            },
+                            "1001510447071100958": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1326614428497477683": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "976375713785602138": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "675031555785228298": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {}
+                    }
+                },
+                "1408542336400752810": {
+                    "alias": "Kurta",
+                    "elo": 1060.0,
+                    "record_wins": 8,
+                    "record_loses": 4,
+                    "captain": 777952858380697622,
+                    "member": {
+                        "starters": {
+                            "775817662474485800": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "564142846396071956": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {
+                                    "vize-captain": true
+                                }
+                            },
+                            "777952858380697622": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1234528922172133428": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1152654608016093294": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "505463544234377241": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1344051304250478704": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1252630759085441084": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1409589384730251286": {
+                    "alias": "Inferno",
+                    "elo": 1075,
+                    "record_wins": 3,
+                    "record_loses": 6,
+                    "captain": 530832279292084234,
+                    "member": {
+                        "starters": {
+                            "537277910948642817": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1235668961723682866": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "239419876475797514": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1162416228086861979": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "492722369543274496": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1336271609836732448": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "969266393277153380": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "496009740279873546": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1387723390399418390": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "824734976775553095": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1409545521462247564": {
+                    "alias": "Uranus",
+                    "elo": 1043,
+                    "record_wins": 5,
+                    "record_loses": 4,
+                    "captain": 1008593427363012728,
+                    "member": {
+                        "starters": {
+                            "1008593427363012728": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1136800582875746374": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "688822146298019944": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1263948481522044958": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "539823931935424513": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "805466064934666271": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1410740480760873012": {
+                    "alias": "EVS",
+                    "elo": 950,
+                    "record_wins": 0,
+                    "record_loses": 2,
+                    "captain": 1174432598630608917,
+                    "member": {
+                        "starters": {
+                            "191290719145689097": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "964661471667683428": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "493311780127506433": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "547112691127287871": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "998659083555053588": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "711243461487231046": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1411406920480329810": {
+                    "alias": "vx1d",
+                    "elo": 950,
+                    "record_wins": 0,
+                    "record_loses": 3,
+                    "captain": 825106148432019478,
+                    "member": {
+                        "starters": {
+                            "1127307287296491550": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1034505350067523594": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "954817635135148062": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1132240258084376586": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1248264250778976311": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "722111005131407502": {
+                                "position": "setter",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1413859392935301141": {
+                    "alias": "Paris FC",
+                    "elo": 1498,
+                    "record_wins": 18,
+                    "record_loses": 3,
+                    "captain": 811624930269069362,
+                    "member": {
+                        "starters": {
+                            "806244644303274005": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "793489414763446342": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "349183633434607619": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "999992504415965276": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "901429031742881792": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "875840056064090182": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "676010361161515032": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "969257551617216592": {
+                                "position": "setter",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "767026565179244545": {
+                                "position": "setter",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {
+                            "1204242985206947921": {
+                                "position": "member",
+                                "rank": "member",
+                                "permissions": {}
+                            }
+                        },
+                        "inactivity": false
+                    }
+                },
+                "1414365547600019467": {
+                    "alias": "Nexus",
+                    "elo": 990,
+                    "record_wins": 0,
+                    "record_loses": 1,
+                    "captain": 1359804600370069604,
+                    "member": {
+                        "starters": {
+                            "1010179303775928330": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "929041820762144819": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1095058449840209950": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1407217050513969242": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1109473357482688625": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1165246063473610804": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1017462538289557615": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1415360539059687544": {
+                    "alias": "Rakuzan",
+                    "elo": 960,
+                    "record_wins": 2,
+                    "record_loses": 4,
+                    "captain": 549137705175482370,
+                    "member": {
+                        "starters": {
+                            "1056539026565378089": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1402009425270538323": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "443885876884406272": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1074630992683356170": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "934151950805643304": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "943914567648550992": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "847536655358754917": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1415384968028229753": {
+                    "alias": "kaisen",
+                    "elo": 990,
+                    "record_wins": 0,
+                    "record_loses": 1,
+                    "captain": 1006915190207545424,
+                    "member": {
+                        "starters": {
+                            "1207331345320251454": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "972944245587587153": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1409693417700720770": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "806999405068025866": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1341860929339396159": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1415392747011182613": {
+                    "alias": "guesser",
                     "elo": 1000,
                     "record_wins": 0,
                     "record_loses": 0,
-                    "captain": 1344051304250478704,
+                    "captain": 1212757933641965610,
                     "member": {
                         "starters": {},
                         "subs": {},
-                        "member": {}
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1415265969860902942": {
+                    "alias": "Loyalty",
+                    "elo": 970,
+                    "record_wins": 0,
+                    "record_loses": 2,
+                    "captain": 1113502718728876083,
+                    "member": {
+                        "starters": {
+                            "374949545144221700": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1027992328872415294": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "485184436749598742": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "420235462628605962": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "730445051360182395": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1399011942051483740": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416390152041005116": {
+                    "alias": "Jedi",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 914505904207040522,
+                    "member": {
+                        "starters": {
+                            "418856105863675924": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1348298467923198035": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "808267685892456458": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "740234556778479677": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "995982252129386557": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "839951471868117002": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "333256796372336650": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "759619432388624455": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416215669476954173": {
+                    "alias": "Lost",
+                    "elo": 990,
+                    "record_wins": 4,
+                    "record_loses": 3,
+                    "captain": 888504085043626045,
+                    "member": {
+                        "starters": {
+                            "211886585673809921": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1178460795680587799": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1022557538404810763": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "540924339420266520": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1092808428201709591": {
+                                "position": "setter",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1125521129952522283": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416400458838315008": {
+                    "alias": "Vbl Nation",
+                    "elo": 915,
+                    "record_wins": 1,
+                    "record_loses": 7,
+                    "captain": 1267963477302054962,
+                    "member": {
+                        "starters": {
+                            "1238587683958296647": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "422398730709368832": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1353110399465164820": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1230202378356260885": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "815934624541835274": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1196116827848323116": {
+                                "position": "setter",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416405407315791902": {
+                    "alias": "Msby-black-jackals",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 751389736807170108,
+                    "member": {
+                        "starters": {},
+                        "subs": {},
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416751603800739902": {
+                    "alias": "Gooners",
+                    "elo": 1003,
+                    "record_wins": 1,
+                    "record_loses": 0,
+                    "captain": 828685295607218257,
+                    "member": {
+                        "starters": {
+                            "1379516039422939181": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "819529288541274113": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1112777041713045504": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1184202927729025134": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "819103106414542878": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1139202933037224027": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {
+                                    "vize-captain": true
+                                }
+                            },
+                            "1018873278481309706": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416766142923542579": {
+                    "alias": "havoc",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 981582287969849434,
+                    "member": {
+                        "starters": {
+                            "1129556839143583764": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1402517189323526207": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1402510303643570291": {
+                                "position": "setter",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416774762822238248": {
+                    "alias": "Angelic Eagles",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 1164885276666110033,
+                    "member": {
+                        "starters": {
+                            "1164885276666110033": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1266360920683188275": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1197148135559024710": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "1136055136049971231": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1416890009864245258": {
+                    "alias": "Nani Genai",
+                    "elo": 1363,
+                    "record_wins": 8,
+                    "record_loses": 1,
+                    "captain": 1071123843286044682,
+                    "member": {
+                        "starters": {
+                            "979754962663899167": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1071123843286044682": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "693560106620682351": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1030135802149220352": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "668190612255670286": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "501052553526771722": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "487999477710585856": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1288126376691503156": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "900088211643191396": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "775458581347958846": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1401452114575884319": {
+                    "alias": "Johzenji",
+                    "elo": 1006.5,
+                    "record_wins": 2,
+                    "record_loses": 1,
+                    "captain": 1314332264024379392,
+                    "member": {
+                        "starters": {
+                            "1314332264024379392": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "905337464355446854": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "838106245058789458": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "720582826067623976": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1406307413929496597": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1109883107034812416": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "687585429452488740": {
+                                "position": "setter",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "953733110535684127": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1340721996295831677": {
+                                "position": "libero",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1343200025840455712": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1417452474012274798": {
+                    "alias": "Rogalik",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0,
+                    "captain": 832870884721164300,
+                    "member": {
+                        "starters": {
+                            "1047039717415321652": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "949738958236057631": {
+                                "position": "libero",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "764211699175522355": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "545291067142963221": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {},
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1417879671806234735": {
+                    "alias": "Sunrise",
+                    "elo": 980,
+                    "record_wins": 0,
+                    "record_loses": 1,
+                    "captain": 1045685101490618448,
+                    "member": {
+                        "starters": {
+                            "988761401822674964": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1337907136985960518": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1045685101490618448": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "847107517754507274": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1320401862050189425": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {
+                            "757233939168362539": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1069963093179912282": {
+                                "position": "defensive-specialist",
+                                "rank": "subs",
+                                "permissions": {}
+                            },
+                            "1003326627457011785": {
+                                "position": "wing-spiker",
+                                "rank": "subs",
+                                "permissions": {}
+                            }
+                        },
+                        "member": {},
+                        "inactivity": false
+                    }
+                },
+                "1417960924311978057": {
+                    "alias": "Resonance",
+                    "elo": 980,
+                    "record_wins": 0,
+                    "record_loses": 1,
+                    "captain": 841484385852588033,
+                    "member": {
+                        "starters": {
+                            "348304324289495040": {
+                                "position": "setter",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "771832263704313857": {
+                                "position": "defensive-specialist",
+                                "rank": "starters",
+                                "permissions": {}
+                            },
+                            "1266014166985080832": {
+                                "position": "wing-spiker",
+                                "rank": "starters",
+                                "permissions": {}
+                            }
+                        },
+                        "subs": {},
+                        "member": {},
+                        "inactivity": false
                     }
                 }
             },
             "leaderboard": {
                 "1354363201780715571": {
                     "alias": "PHANTOM",
-                    "elo": 1314,
-                    "record_wins": 2,
-                    "record_loses": 0
+                    "elo": 1759,
+                    "record_wins": 21,
+                    "record_loses": 5
                 },
-                "1383070003829669908": {
-                    "alias": "Miracles",
-                    "elo": 1300,
-                    "record_wins": 0,
-                    "record_loses": 0
+                "1413859392935301141": {
+                    "alias": "Paris FC",
+                    "elo": 1498,
+                    "record_wins": 18,
+                    "record_loses": 3
                 },
-                "1381243727649046678": {
-                    "alias": "HellVerse",
-                    "elo": 1240,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1393608663767449621": {
-                    "alias": "Solace",
-                    "elo": 1190,
-                    "record_wins": 0,
+                "1416890009864245258": {
+                    "alias": "Nani Genai",
+                    "elo": 1363,
+                    "record_wins": 8,
                     "record_loses": 1
-                },
-                "1384063796754124830": {
-                    "alias": "Berserk",
-                    "elo": 1180,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1382673444797415555": {
-                    "alias": "Venus",
-                    "elo": 1130,
-                    "record_wins": 0,
-                    "record_loses": 1
-                },
-                "1402919551901106268": {
-                    "alias": "SNK",
-                    "elo": 1120,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1397166622724325437": {
-                    "alias": "Isshin",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1400556179041816586": {
-                    "alias": "Sunacchi",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1401452114575884319": {
-                    "alias": "Rising Suns",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1401651410495602869": {
-                    "alias": "Mistake",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1401959330978205706": {
-                    "alias": "Sanity",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1401961326926106674": {
-                    "alias": "86",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1402232738576072734": {
-                    "alias": "MSBY Black Jackals",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1402470130570625065": {
-                    "alias": "Soren",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1402638882847326348": {
-                    "alias": "Shi",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1402692450094682244": {
-                    "alias": "Espada",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1402716486862377090": {
-                    "alias": "Valkyrie",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
-                },
-                "1402742573516197888": {
-                    "alias": "Furok\u014d",
-                    "elo": 1000,
-                    "record_wins": 0,
-                    "record_loses": 0
                 },
                 "1403063475743232162": {
                     "alias": "Shoelaces",
+                    "elo": 1180,
+                    "record_wins": 16,
+                    "record_loses": 12
+                },
+                "1409589384730251286": {
+                    "alias": "Inferno",
+                    "elo": 1075,
+                    "record_wins": 3,
+                    "record_loses": 6
+                },
+                "1408542336400752810": {
+                    "alias": "Kurta",
+                    "elo": 1060.0,
+                    "record_wins": 8,
+                    "record_loses": 4
+                },
+                "1406559076963581982": {
+                    "alias": "Akai",
+                    "elo": 1051.0,
+                    "record_wins": 6,
+                    "record_loses": 6
+                },
+                "1409545521462247564": {
+                    "alias": "Uranus",
+                    "elo": 1043,
+                    "record_wins": 5,
+                    "record_loses": 4
+                },
+                "1401452114575884319": {
+                    "alias": "Johzenji",
+                    "elo": 1006.5,
+                    "record_wins": 2,
+                    "record_loses": 1
+                },
+                "1416751603800739902": {
+                    "alias": "Gooners",
+                    "elo": 1003,
+                    "record_wins": 1,
+                    "record_loses": 0
+                },
+                "1415392747011182613": {
+                    "alias": "guesser",
                     "elo": 1000,
                     "record_wins": 0,
                     "record_loses": 0
                 },
-                "1402699077019242627": {
-                    "alias": "Schweiden",
+                "1416390152041005116": {
+                    "alias": "Jedi",
                     "elo": 1000,
                     "record_wins": 0,
                     "record_loses": 0
+                },
+                "1416405407315791902": {
+                    "alias": "Msby-black-jackals",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1416766142923542579": {
+                    "alias": "havoc",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1416774762822238248": {
+                    "alias": "Angelic Eagles",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1417452474012274798": {
+                    "alias": "Rogalik",
+                    "elo": 1000,
+                    "record_wins": 0,
+                    "record_loses": 0
+                },
+                "1406558038030028840": {
+                    "alias": "EvanescencE",
+                    "elo": 996,
+                    "record_wins": 4,
+                    "record_loses": 5
+                },
+                "1415384968028229753": {
+                    "alias": "kaisen",
+                    "elo": 990,
+                    "record_wins": 0,
+                    "record_loses": 1
+                },
+                "1414365547600019467": {
+                    "alias": "Nexus",
+                    "elo": 990,
+                    "record_wins": 0,
+                    "record_loses": 1
+                },
+                "1416215669476954173": {
+                    "alias": "Lost",
+                    "elo": 990,
+                    "record_wins": 4,
+                    "record_loses": 3
+                },
+                "1417960924311978057": {
+                    "alias": "Resonance",
+                    "elo": 980,
+                    "record_wins": 0,
+                    "record_loses": 1
+                },
+                "1417879671806234735": {
+                    "alias": "Sunrise",
+                    "elo": 980,
+                    "record_wins": 0,
+                    "record_loses": 1
+                },
+                "1402232738576072734": {
+                    "alias": "MSBY Black Jackals",
+                    "elo": 980,
+                    "record_wins": 0,
+                    "record_loses": 1
+                },
+                "1415265969860902942": {
+                    "alias": "Loyalty",
+                    "elo": 970,
+                    "record_wins": 0,
+                    "record_loses": 2
+                },
+                "1415360539059687544": {
+                    "alias": "Rakuzan",
+                    "elo": 960,
+                    "record_wins": 2,
+                    "record_loses": 4
+                },
+                "1401651410495602869": {
+                    "alias": "Mistake",
+                    "elo": 960,
+                    "record_wins": 0,
+                    "record_loses": 2
+                },
+                "1402692450094682244": {
+                    "alias": "Espada",
+                    "elo": 960,
+                    "record_wins": 0,
+                    "record_loses": 2
+                },
+                "1411406920480329810": {
+                    "alias": "vx1d",
+                    "elo": 950,
+                    "record_wins": 0,
+                    "record_loses": 3
+                },
+                "1410740480760873012": {
+                    "alias": "EVS",
+                    "elo": 950,
+                    "record_wins": 0,
+                    "record_loses": 2
+                },
+                "1416400458838315008": {
+                    "alias": "Vbl Nation",
+                    "elo": 915,
+                    "record_wins": 1,
+                    "record_loses": 7
                 }
             },
-            "join_cooldowns": {}
+            "join_cooldowns": {
+                "1012792199756398683": {
+                    "joined_cooldown": [
+                        "2025-09-02T23:09:11.349772+02:00"
+                    ]
+                },
+                "800011293611261962": {
+                    "joined_cooldown": [
+                        "2025-08-23T16:59:04.336360+02:00"
+                    ]
+                },
+                "765234568604811337": {
+                    "joined_cooldown": [
+                        "2025-08-23T17:21:13.710489+02:00"
+                    ]
+                },
+                "1345448352753647700": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:02:55.935546+02:00"
+                    ]
+                },
+                "249546302252253184": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:06:29.366051+02:00"
+                    ]
+                },
+                "1009208200240828447": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:06:48.632520+02:00"
+                    ]
+                },
+                "932721076289548319": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:11:17.745253+02:00"
+                    ]
+                },
+                "723201235678658653": {
+                    "joined_cooldown": [
+                        "2025-09-05T11:56:22.850441+02:00"
+                    ]
+                },
+                "441329988030038016": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:20:10.937285+02:00"
+                    ]
+                },
+                "1384221266654789726": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:23:34.371091+02:00"
+                    ]
+                },
+                "566339386367672342": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:24:50.040138+02:00"
+                    ]
+                },
+                "755054286114914315": {
+                    "joined_cooldown": [
+                        "2025-08-23T18:29:03.853532+02:00"
+                    ]
+                },
+                "777952858380697622": {
+                    "joined_cooldown": [
+                        "2025-08-26T23:57:57.614805+02:00"
+                    ]
+                },
+                "775817662474485800": {
+                    "joined_cooldown": [
+                        "2025-08-26T23:53:33.228484+02:00"
+                    ]
+                },
+                "564142846396071956": {
+                    "joined_cooldown": [
+                        "2025-08-26T23:53:46.528078+02:00"
+                    ]
+                },
+                "1053396120539238481": {
+                    "joined_cooldown": [
+                        "2025-08-23T21:45:33.469730+02:00"
+                    ]
+                },
+                "688822146298019944": {
+                    "joined_cooldown": [
+                        "2025-08-31T06:32:09.295498+02:00"
+                    ]
+                },
+                "1034925433994629180": {
+                    "joined_cooldown": [
+                        "2025-08-27T21:51:47.708212+02:00"
+                    ]
+                },
+                "997081536300064838": {
+                    "joined_cooldown": [
+                        "2025-08-24T14:07:50.727292+02:00"
+                    ]
+                },
+                "929041820762144819": {
+                    "joined_cooldown": [
+                        "2025-09-11T00:48:13.784160+02:00"
+                    ]
+                },
+                "1406966973916647486": {
+                    "joined_cooldown": [
+                        "2025-08-24T14:19:14.037902+02:00"
+                    ]
+                },
+                "755818382439219261": {
+                    "joined_cooldown": [
+                        "2025-09-03T14:38:00.090601+02:00"
+                    ]
+                },
+                "1121815585374883870": {
+                    "joined_cooldown": [
+                        "2025-08-27T20:02:06.143674+02:00"
+                    ]
+                },
+                "1296048975883010049": {
+                    "joined_cooldown": [
+                        "2025-08-30T16:43:38.372214+02:00"
+                    ]
+                },
+                "1109473357482688625": {
+                    "joined_cooldown": [
+                        "2025-09-16T12:44:14.725778+02:00"
+                    ]
+                },
+                "798930303451529238": {
+                    "joined_cooldown": [
+                        "2025-08-24T17:50:02.480490+02:00"
+                    ]
+                },
+                "676010361161515032": {
+                    "joined_cooldown": [
+                        "2025-09-09T14:20:57.981199+02:00"
+                    ]
+                },
+                "1330600706855665754": {
+                    "joined_cooldown": [
+                        "2025-09-01T16:24:29.706149+02:00"
+                    ]
+                },
+                "675853095976304670": {
+                    "joined_cooldown": [
+                        "2025-08-24T17:56:21.250809+02:00"
+                    ]
+                },
+                "374949545144221700": {
+                    "joined_cooldown": [
+                        "2025-09-16T14:51:11.607249+02:00"
+                    ]
+                },
+                "1274099324166606962": {
+                    "joined_cooldown": [
+                        "2025-08-24T17:57:45.143707+02:00"
+                    ]
+                },
+                "1295776673458950214": {
+                    "joined_cooldown": [
+                        "2025-08-24T17:58:21.507467+02:00"
+                    ]
+                },
+                "1362510868180500652": {
+                    "joined_cooldown": [
+                        "2025-08-24T17:59:20.929867+02:00"
+                    ]
+                },
+                "1344051304250478704": {
+                    "joined_cooldown": [
+                        "2025-08-29T20:02:54.639084+02:00"
+                    ]
+                },
+                "809797028808884236": {
+                    "joined_cooldown": [
+                        "2025-08-28T22:05:41.256017+02:00"
+                    ]
+                },
+                "1310025735112495187": {
+                    "joined_cooldown": [
+                        "2025-09-09T10:32:19.336500+02:00"
+                    ]
+                },
+                "691607917174063144": {
+                    "joined_cooldown": [
+                        "2025-08-25T05:36:06.517912+02:00"
+                    ]
+                },
+                "888818639795548240": {
+                    "joined_cooldown": [
+                        "2025-09-05T11:55:58.335254+02:00"
+                    ]
+                },
+                "1238587683958296647": {
+                    "joined_cooldown": [
+                        "2025-09-17T12:06:28.251458+02:00"
+                    ]
+                },
+                "1267963477302054962": {
+                    "joined_cooldown": [
+                        "2025-08-25T06:52:11.105340+02:00"
+                    ]
+                },
+                "583262784729645077": {
+                    "joined_cooldown": [
+                        "2025-08-25T06:53:47.173172+02:00"
+                    ]
+                },
+                "1387444397020287142": {
+                    "joined_cooldown": [
+                        "2025-08-25T06:55:44.881706+02:00"
+                    ]
+                },
+                "1388906367510642791": {
+                    "joined_cooldown": [
+                        "2025-08-25T06:58:47.600672+02:00"
+                    ]
+                },
+                "893683794572357652": {
+                    "joined_cooldown": [
+                        "2025-08-25T12:58:59.490256+02:00"
+                    ]
+                },
+                "1329770384832335894": {
+                    "joined_cooldown": [
+                        "2025-08-25T13:01:25.666481+02:00"
+                    ]
+                },
+                "988761401822674964": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:51:45.445596+02:00"
+                    ]
+                },
+                "1276884472767185028": {
+                    "joined_cooldown": [
+                        "2025-08-25T13:04:07.960489+02:00"
+                    ]
+                },
+                "1230881045033914442": {
+                    "joined_cooldown": [
+                        "2025-08-25T13:05:27.953791+02:00"
+                    ]
+                },
+                "1060514858723979284": {
+                    "joined_cooldown": [
+                        "2025-08-25T13:06:37.751206+02:00"
+                    ]
+                },
+                "746829353085567117": {
+                    "joined_cooldown": [
+                        "2025-08-25T14:25:52.250452+02:00"
+                    ]
+                },
+                "1140911431781453865": {
+                    "joined_cooldown": [
+                        "2025-08-25T17:59:05.884026+02:00"
+                    ]
+                },
+                "191290719145689097": {
+                    "joined_cooldown": [
+                        "2025-09-05T12:19:01.551110+02:00"
+                    ]
+                },
+                "1223954939370410047": {
+                    "joined_cooldown": [
+                        "2025-08-25T21:43:09.342752+02:00"
+                    ]
+                },
+                "758373125476843531": {
+                    "joined_cooldown": [
+                        "2025-08-25T21:55:40.536987+02:00"
+                    ]
+                },
+                "732920171500535898": {
+                    "joined_cooldown": [
+                        "2025-08-25T21:55:59.937640+02:00"
+                    ]
+                },
+                "502941624284872725": {
+                    "joined_cooldown": [
+                        "2025-08-25T21:57:25.005926+02:00"
+                    ]
+                },
+                "678338315879186486": {
+                    "joined_cooldown": [
+                        "2025-09-14T19:08:13.396653+02:00"
+                    ]
+                },
+                "935593431844143185": {
+                    "joined_cooldown": [
+                        "2025-09-14T19:14:23.560729+02:00"
+                    ]
+                },
+                "1152654608016093294": {
+                    "joined_cooldown": [
+                        "2025-08-26T00:31:25.296298+02:00"
+                    ]
+                },
+                "505463544234377241": {
+                    "joined_cooldown": [
+                        "2025-08-26T00:31:52.674645+02:00"
+                    ]
+                },
+                "758776379914715187": {
+                    "joined_cooldown": [
+                        "2025-08-27T00:33:41.439234+02:00"
+                    ]
+                },
+                "969266393277153380": {
+                    "joined_cooldown": [
+                        "2025-08-30T18:45:05.351570+02:00"
+                    ]
+                },
+                "675031555785228298": {
+                    "joined_cooldown": [
+                        "2025-08-31T17:15:20.359542+02:00"
+                    ]
+                },
+                "1234528922172133428": {
+                    "joined_cooldown": [
+                        "2025-08-27T15:23:24.163884+02:00"
+                    ]
+                },
+                "795050341409226782": {
+                    "joined_cooldown": [
+                        "2025-09-18T20:33:11.879642+02:00"
+                    ]
+                },
+                "730445051360182395": {
+                    "joined_cooldown": [
+                        "2025-09-20T17:21:50.837750+02:00"
+                    ]
+                },
+                "741016934354518090": {
+                    "joined_cooldown": [
+                        "2025-08-27T20:45:38.024481+02:00"
+                    ]
+                },
+                "1408502876007039006": {
+                    "joined_cooldown": [
+                        "2025-09-18T18:36:10.555182+02:00"
+                    ]
+                },
+                "485184436749598742": {
+                    "joined_cooldown": [
+                        "2025-09-18T22:54:21.085799+02:00"
+                    ]
+                },
+                "1071123843286044682": {
+                    "joined_cooldown": [
+                        "2025-09-01T01:11:42.727389+02:00"
+                    ]
+                },
+                "1218895028529922049": {
+                    "joined_cooldown": [
+                        "2025-08-28T11:51:19.681149+02:00"
+                    ]
+                },
+                "1273247070228320270": {
+                    "joined_cooldown": [
+                        "2025-08-28T14:30:52.707530+02:00"
+                    ]
+                },
+                "845972901089247246": {
+                    "joined_cooldown": [
+                        "2025-08-28T17:56:18.589491+02:00"
+                    ]
+                },
+                "1288126376691503156": {
+                    "joined_cooldown": [
+                        "2025-09-18T01:21:43.494086+02:00"
+                    ]
+                },
+                "1131291126494666752": {
+                    "joined_cooldown": [
+                        "2025-08-28T19:36:45.278019+02:00"
+                    ]
+                },
+                "1396705804723425290": {
+                    "joined_cooldown": [
+                        "2025-08-28T20:53:21.992850+02:00"
+                    ]
+                },
+                "890635252576428052": {
+                    "joined_cooldown": [
+                        "2025-09-19T19:06:37.409674+02:00"
+                    ]
+                },
+                "839459750441910304": {
+                    "joined_cooldown": [
+                        "2025-09-18T16:36:49.493020+02:00"
+                    ]
+                },
+                "681132199793131557": {
+                    "joined_cooldown": [
+                        "2025-09-08T22:35:05.720274+02:00"
+                    ]
+                },
+                "1056539026565378089": {
+                    "joined_cooldown": [
+                        "2025-09-13T17:43:21.950288+02:00"
+                    ]
+                },
+                "493311780127506433": {
+                    "joined_cooldown": [
+                        "2025-09-05T12:19:34.595184+02:00"
+                    ]
+                },
+                "1055950493660237915": {
+                    "joined_cooldown": [
+                        "2025-09-19T00:51:42.336991+02:00"
+                    ]
+                },
+                "666403171614064667": {
+                    "joined_cooldown": [
+                        "2025-09-07T20:26:11.065904+02:00"
+                    ]
+                },
+                "1109883107034812416": {
+                    "joined_cooldown": [
+                        "2025-09-22T16:35:38.909172+02:00"
+                    ]
+                },
+                "1356670996441989122": {
+                    "joined_cooldown": [
+                        "2025-08-29T12:53:26.118336+02:00"
+                    ]
+                },
+                "1172899312372568177": {
+                    "joined_cooldown": [
+                        "2025-08-29T13:57:00.691404+02:00"
+                    ]
+                },
+                "1276906399149981709": {
+                    "joined_cooldown": [
+                        "2025-08-29T14:51:26.144408+02:00"
+                    ]
+                },
+                "778880043442896906": {
+                    "joined_cooldown": [
+                        "2025-08-29T16:13:07.262295+02:00"
+                    ]
+                },
+                "547112691127287871": {
+                    "joined_cooldown": [
+                        "2025-09-11T23:53:36.576341+02:00"
+                    ]
+                },
+                "1326614428497477683": {
+                    "joined_cooldown": [
+                        "2025-09-01T22:01:20.676294+02:00"
+                    ]
+                },
+                "1127307287296491550": {
+                    "joined_cooldown": [
+                        "2025-09-07T18:43:01.684395+02:00"
+                    ]
+                },
+                "1006915190207545424": {
+                    "joined_cooldown": [
+                        "2025-08-30T16:44:35.575597+02:00"
+                    ]
+                },
+                "1263948481522044958": {
+                    "joined_cooldown": [
+                        "2025-09-02T21:08:15.442890+02:00"
+                    ]
+                },
+                "1387723390399418390": {
+                    "joined_cooldown": [
+                        "2025-08-30T17:54:58.892474+02:00"
+                    ]
+                },
+                "537277910948642817": {
+                    "joined_cooldown": [
+                        "2025-08-30T20:06:35.605479+02:00"
+                    ]
+                },
+                "1235668961723682866": {
+                    "joined_cooldown": [
+                        "2025-08-30T20:08:36.713816+02:00"
+                    ]
+                },
+                "726116398698332183": {
+                    "joined_cooldown": [
+                        "2025-08-30T20:46:00.648293+02:00"
+                    ]
+                },
+                "500188330366074891": {
+                    "joined_cooldown": [
+                        "2025-08-31T00:03:35.300847+02:00"
+                    ]
+                },
+                "1357084585925542058": {
+                    "joined_cooldown": [
+                        "2025-08-31T04:42:46.171856+02:00"
+                    ]
+                },
+                "1008593427363012728": {
+                    "joined_cooldown": [
+                        "2025-08-31T06:28:35.288219+02:00"
+                    ]
+                },
+                "1136800582875746374": {
+                    "joined_cooldown": [
+                        "2025-08-31T06:29:19.476254+02:00"
+                    ]
+                },
+                "1001510447071100958": {
+                    "joined_cooldown": [
+                        "2025-08-31T17:13:26.918092+02:00"
+                    ]
+                },
+                "1161329705291616397": {
+                    "joined_cooldown": [
+                        "2025-09-07T20:03:47.720211+02:00"
+                    ]
+                },
+                "888504085043626045": {
+                    "joined_cooldown": [
+                        "2025-09-10T20:20:26.781900+02:00"
+                    ]
+                },
+                "1118222222818025602": {
+                    "joined_cooldown": [
+                        "2025-09-08T11:48:33.456539+02:00"
+                    ]
+                },
+                "1086312540830703648": {
+                    "joined_cooldown": [
+                        "2025-09-15T23:12:20.466521+02:00"
+                    ]
+                },
+                "1027992328872415294": {
+                    "joined_cooldown": [
+                        "2025-09-18T22:53:46.583703+02:00"
+                    ]
+                },
+                "954471983788199998": {
+                    "joined_cooldown": [
+                        "2025-09-01T00:53:28.091059+02:00"
+                    ]
+                },
+                "1204242985206947921": {
+                    "joined_cooldown": [
+                        "2025-09-11T23:31:05.877164+02:00"
+                    ]
+                },
+                "730794022062522400": {
+                    "joined_cooldown": [
+                        "2025-09-01T14:03:16.109780+02:00"
+                    ]
+                },
+                "789760662682337301": {
+                    "joined_cooldown": [
+                        "2025-09-01T11:11:07.457411+02:00"
+                    ]
+                },
+                "348304324289495040": {
+                    "joined_cooldown": [
+                        "2025-09-20T22:57:45.740314+02:00"
+                    ]
+                },
+                "824734976775553095": {
+                    "joined_cooldown": [
+                        "2025-09-05T18:49:36.683159+02:00"
+                    ]
+                },
+                "975350675527593994": {
+                    "joined_cooldown": [
+                        "2025-09-01T13:47:04.406227+02:00"
+                    ]
+                },
+                "1298698878761172992": {
+                    "joined_cooldown": [
+                        "2025-09-04T20:09:25.799995+02:00"
+                    ]
+                },
+                "303559420552544257": {
+                    "joined_cooldown": [
+                        "2025-09-20T00:21:28.538788+02:00"
+                    ]
+                },
+                "600331811742285834": {
+                    "joined_cooldown": [
+                        "2025-09-01T17:35:17.711179+02:00"
+                    ]
+                },
+                "1301973300485816392": {
+                    "joined_cooldown": [
+                        "2025-09-01T18:54:12.784630+02:00"
+                    ]
+                },
+                "804690379395301416": {
+                    "joined_cooldown": [
+                        "2025-09-02T14:35:01.910449+02:00"
+                    ]
+                },
+                "1201398306295779432": {
+                    "joined_cooldown": [
+                        "2025-09-02T14:35:28.809251+02:00"
+                    ]
+                },
+                "161942592177700867": {
+                    "joined_cooldown": [
+                        "2025-09-02T14:35:46.678053+02:00"
+                    ]
+                },
+                "785984087511793735": {
+                    "joined_cooldown": [
+                        "2025-09-02T14:38:25.653584+02:00"
+                    ]
+                },
+                "680741786368737311": {
+                    "joined_cooldown": [
+                        "2025-09-02T22:01:05.378437+02:00"
+                    ]
+                },
+                "1382028150552395776": {
+                    "joined_cooldown": [
+                        "2025-09-10T23:39:44.260951+02:00"
+                    ]
+                },
+                "1125521129952522283": {
+                    "joined_cooldown": [
+                        "2025-09-17T18:24:56.415973+02:00"
+                    ]
+                },
+                "803537809209294868": {
+                    "joined_cooldown": [
+                        "2025-09-04T16:27:34.841076+02:00"
+                    ]
+                },
+                "563827420726165504": {
+                    "joined_cooldown": [
+                        "2025-09-04T20:13:14.402133+02:00"
+                    ]
+                },
+                "670748323614818304": {
+                    "joined_cooldown": [
+                        "2025-09-05T00:04:04.362478+02:00"
+                    ]
+                },
+                "1276211518618468458": {
+                    "joined_cooldown": [
+                        "2025-09-05T02:35:46.036649+02:00"
+                    ]
+                },
+                "752985564365455451": {
+                    "joined_cooldown": [
+                        "2025-09-17T15:10:45.579985+02:00"
+                    ]
+                },
+                "725377451307302964": {
+                    "joined_cooldown": [
+                        "2025-09-05T12:00:33.979083+02:00"
+                    ]
+                },
+                "964661471667683428": {
+                    "joined_cooldown": [
+                        "2025-09-05T12:19:22.756285+02:00"
+                    ]
+                },
+                "998659083555053588": {
+                    "joined_cooldown": [
+                        "2025-09-05T12:22:25.972622+02:00"
+                    ]
+                },
+                "806244644303274005": {
+                    "joined_cooldown": [
+                        "2025-09-09T14:21:11.901948+02:00"
+                    ]
+                },
+                "720582826067623976": {
+                    "joined_cooldown": [
+                        "2025-09-19T00:37:20.901535+02:00"
+                    ]
+                },
+                "999992504415965276": {
+                    "joined_cooldown": [
+                        "2025-09-14T10:06:47.126476+02:00"
+                    ]
+                },
+                "239419876475797514": {
+                    "joined_cooldown": [
+                        "2025-09-10T23:31:43.181561+02:00"
+                    ]
+                },
+                "191626974836293642": {
+                    "joined_cooldown": [
+                        "2025-09-05T21:25:09.699372+02:00"
+                    ]
+                },
+                "934151950805643304": {
+                    "joined_cooldown": [
+                        "2025-09-13T17:46:29.008963+02:00"
+                    ]
+                },
+                "900088211643191396": {
+                    "joined_cooldown": [
+                        "2025-09-18T01:22:08.091686+02:00"
+                    ]
+                },
+                "805466064934666271": {
+                    "joined_cooldown": [
+                        "2025-09-06T14:47:49.469273+02:00"
+                    ]
+                },
+                "711243461487231046": {
+                    "joined_cooldown": [
+                        "2025-09-10T22:23:14.819373+02:00"
+                    ]
+                },
+                "1132240258084376586": {
+                    "joined_cooldown": [
+                        "2025-09-07T18:44:29.525753+02:00"
+                    ]
+                },
+                "1034505350067523594": {
+                    "joined_cooldown": [
+                        "2025-09-07T18:44:52.022946+02:00"
+                    ]
+                },
+                "1248264250778976311": {
+                    "joined_cooldown": [
+                        "2025-09-07T18:45:24.034948+02:00"
+                    ]
+                },
+                "722111005131407502": {
+                    "joined_cooldown": [
+                        "2025-09-07T18:47:18.172160+02:00"
+                    ]
+                },
+                "969257551617216592": {
+                    "joined_cooldown": [
+                        "2025-09-11T21:56:18.948282+02:00"
+                    ]
+                },
+                "1337448946007801899": {
+                    "joined_cooldown": [
+                        "2025-09-07T20:27:35.174877+02:00"
+                    ]
+                },
+                "811624930269069362": {
+                    "joined_cooldown": [
+                        "2025-09-08T09:20:46.867471+02:00"
+                    ]
+                },
+                "793489414763446342": {
+                    "joined_cooldown": [
+                        "2025-09-11T19:51:14.955698+02:00"
+                    ]
+                },
+                "349183633434607619": {
+                    "joined_cooldown": [
+                        "2025-09-11T19:52:33.887154+02:00"
+                    ]
+                },
+                "546334731172839424": {
+                    "joined_cooldown": [
+                        "2025-09-08T21:02:44.658855+02:00"
+                    ]
+                },
+                "713081799554760826": {
+                    "joined_cooldown": [
+                        "2025-09-09T11:01:38.936656+02:00"
+                    ]
+                },
+                "954817635135148062": {
+                    "joined_cooldown": [
+                        "2025-09-09T11:47:54.570768+02:00"
+                    ]
+                },
+                "875840056064090182": {
+                    "joined_cooldown": [
+                        "2025-09-09T14:19:50.221572+02:00"
+                    ]
+                },
+                "767026565179244545": {
+                    "joined_cooldown": [
+                        "2025-09-12T22:23:18.448006+02:00"
+                    ]
+                },
+                "1174432598630608917": {
+                    "joined_cooldown": [
+                        "2025-09-09T15:38:57.652993+02:00"
+                    ]
+                },
+                "910221061830885387": {
+                    "joined_cooldown": [
+                        "2025-09-09T15:59:48.384987+02:00"
+                    ]
+                },
+                "1178460795680587799": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:41:41.387552+02:00"
+                    ]
+                },
+                "671629484788547614": {
+                    "joined_cooldown": [
+                        "2025-09-09T17:09:47.576393+02:00"
+                    ]
+                },
+                "728973775718318110": {
+                    "joined_cooldown": [
+                        "2025-09-22T17:26:21.397711+02:00"
+                    ]
+                },
+                "721364182058139670": {
+                    "joined_cooldown": [
+                        "2025-09-13T17:00:35.904183+02:00"
+                    ]
+                },
+                "826192433280188455": {
+                    "joined_cooldown": [
+                        "2025-09-10T23:37:03.745838+02:00"
+                    ]
+                },
+                "1010179303775928330": {
+                    "joined_cooldown": [
+                        "2025-09-11T00:45:40.974281+02:00"
+                    ]
+                },
+                "1095058449840209950": {
+                    "joined_cooldown": [
+                        "2025-09-11T00:49:34.063068+02:00"
+                    ]
+                },
+                "1407217050513969242": {
+                    "joined_cooldown": [
+                        "2025-09-11T00:49:59.082755+02:00"
+                    ]
+                },
+                "1267553177033642024": {
+                    "joined_cooldown": [
+                        "2025-09-11T21:17:13.910050+02:00"
+                    ]
+                },
+                "1165246063473610804": {
+                    "joined_cooldown": [
+                        "2025-09-16T12:39:07.924075+02:00"
+                    ]
+                },
+                "730110870809608216": {
+                    "joined_cooldown": [
+                        "2025-09-11T01:28:44.500078+02:00"
+                    ]
+                },
+                "562995863266394123": {
+                    "joined_cooldown": [
+                        "2025-09-11T01:43:31.375956+02:00"
+                    ]
+                },
+                "472899212783255552": {
+                    "joined_cooldown": [
+                        "2025-09-11T01:44:16.622215+02:00"
+                    ]
+                },
+                "1092808428201709591": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:42:40.303896+02:00"
+                    ]
+                },
+                "1320442273045151896": {
+                    "joined_cooldown": [
+                        "2025-09-11T16:42:44.587811+02:00"
+                    ]
+                },
+                "942016975205437480": {
+                    "joined_cooldown": [
+                        "2025-09-11T17:23:10.330305+02:00"
+                    ]
+                },
+                "1005484898729066550": {
+                    "joined_cooldown": [
+                        "2025-09-12T15:05:39.564201+02:00"
+                    ]
+                },
+                "492722369543274496": {
+                    "joined_cooldown": [
+                        "2025-09-18T20:16:37.287191+02:00"
+                    ]
+                },
+                "1155565689734693036": {
+                    "joined_cooldown": [
+                        "2025-09-16T12:45:42.606303+02:00"
+                    ]
+                },
+                "775458581347958846": {
+                    "joined_cooldown": [
+                        "2025-09-18T01:38:02.613303+02:00"
+                    ]
+                },
+                "549137705175482370": {
+                    "joined_cooldown": [
+                        "2025-09-13T01:31:02.016701+02:00"
+                    ]
+                },
+                "706248408855478403": {
+                    "joined_cooldown": [
+                        "2025-09-13T06:13:24.003580+02:00"
+                    ]
+                },
+                "1225509399464775702": {
+                    "joined_cooldown": [
+                        "2025-09-13T11:36:11.357491+02:00"
+                    ]
+                },
+                "1402009425270538323": {
+                    "joined_cooldown": [
+                        "2025-09-13T17:43:40.125383+02:00"
+                    ]
+                },
+                "443885876884406272": {
+                    "joined_cooldown": [
+                        "2025-09-13T17:43:55.714170+02:00"
+                    ]
+                },
+                "1074630992683356170": {
+                    "joined_cooldown": [
+                        "2025-09-13T17:44:12.706657+02:00"
+                    ]
+                },
+                "943914567648550992": {
+                    "joined_cooldown": [
+                        "2025-09-13T17:46:44.384198+02:00"
+                    ]
+                },
+                "1290033553433952258": {
+                    "joined_cooldown": [
+                        "2025-09-17T22:02:34.184850+02:00"
+                    ]
+                },
+                "1369015613930082415": {
+                    "joined_cooldown": [
+                        "2025-09-13T20:26:27.344910+02:00"
+                    ]
+                },
+                "1005901866376368140": {
+                    "joined_cooldown": [
+                        "2025-09-17T22:03:45.170632+02:00"
+                    ]
+                },
+                "1113018154948493423": {
+                    "joined_cooldown": [
+                        "2025-09-17T22:03:01.445947+02:00"
+                    ]
+                },
+                "1382416609687371987": {
+                    "joined_cooldown": [
+                        "2025-09-17T22:03:33.843752+02:00"
+                    ]
+                },
+                "390847991633805332": {
+                    "joined_cooldown": [
+                        "2025-09-18T10:09:48.539624+02:00"
+                    ]
+                },
+                "1280998565698732073": {
+                    "joined_cooldown": [
+                        "2025-09-17T22:02:46.417548+02:00"
+                    ]
+                },
+                "1252630759085441084": {
+                    "joined_cooldown": [
+                        "2025-09-19T20:10:13.435878+02:00"
+                    ]
+                },
+                "693560106620682351": {
+                    "joined_cooldown": [
+                        "2025-09-13T22:36:12.240912+02:00"
+                    ]
+                },
+                "901429031742881792": {
+                    "joined_cooldown": [
+                        "2025-09-13T22:56:44.334537+02:00"
+                    ]
+                },
+                "847536655358754917": {
+                    "joined_cooldown": [
+                        "2025-09-17T01:21:43.085182+02:00"
+                    ]
+                },
+                "1383957678174245015": {
+                    "joined_cooldown": [
+                        "2025-09-13T23:57:00.704152+02:00"
+                    ]
+                },
+                "707906858030989312": {
+                    "joined_cooldown": [
+                        "2025-09-19T00:48:29.158261+02:00"
+                    ]
+                },
+                "1203356487590617108": {
+                    "joined_cooldown": [
+                        "2025-09-19T10:17:51.466513+02:00"
+                    ]
+                },
+                "838106245058789458": {
+                    "joined_cooldown": [
+                        "2025-09-19T00:36:54.336021+02:00"
+                    ]
+                },
+                "1340721996295831677": {
+                    "joined_cooldown": [
+                        "2025-09-19T00:42:09.166818+02:00"
+                    ]
+                },
+                "714587011121545257": {
+                    "joined_cooldown": [
+                        "2025-09-15T07:04:15.033752+02:00"
+                    ]
+                },
+                "1404393665425571860": {
+                    "joined_cooldown": [
+                        "2025-09-15T08:17:40.902243+02:00"
+                    ]
+                },
+                "1310660913212166164": {
+                    "joined_cooldown": [
+                        "2025-09-15T18:39:54.178962+02:00"
+                    ]
+                },
+                "1403323289669210123": {
+                    "joined_cooldown": [
+                        "2025-09-17T17:39:18.430452+02:00"
+                    ]
+                },
+                "727000296961736794": {
+                    "joined_cooldown": [
+                        "2025-09-18T23:20:36.466452+02:00"
+                    ]
+                },
+                "953733110535684127": {
+                    "joined_cooldown": [
+                        "2025-09-19T00:39:14.567868+02:00"
+                    ]
+                },
+                "1399011942051483740": {
+                    "joined_cooldown": [
+                        "2025-09-15T12:09:38.960786+02:00"
+                    ]
+                },
+                "939917245197451314": {
+                    "joined_cooldown": [
+                        "2025-09-15T19:57:56.324734+02:00"
+                    ]
+                },
+                "1017462538289557615": {
+                    "joined_cooldown": [
+                        "2025-09-16T12:45:10.453220+02:00"
+                    ]
+                },
+                "1207331345320251454": {
+                    "joined_cooldown": [
+                        "2025-09-16T13:21:00.486850+02:00"
+                    ]
+                },
+                "972944245587587153": {
+                    "joined_cooldown": [
+                        "2025-09-16T13:21:23.176213+02:00"
+                    ]
+                },
+                "1341860929339396159": {
+                    "joined_cooldown": [
+                        "2025-09-16T13:21:40.720419+02:00"
+                    ]
+                },
+                "1409693417700720770": {
+                    "joined_cooldown": [
+                        "2025-09-16T13:21:57.340618+02:00"
+                    ]
+                },
+                "806999405068025866": {
+                    "joined_cooldown": [
+                        "2025-09-16T13:22:15.222784+02:00"
+                    ]
+                },
+                "422398730709368832": {
+                    "joined_cooldown": [
+                        "2025-09-17T12:08:22.806747+02:00"
+                    ]
+                },
+                "1353110399465164820": {
+                    "joined_cooldown": [
+                        "2025-09-17T12:09:40.562624+02:00"
+                    ]
+                },
+                "815934624541835274": {
+                    "joined_cooldown": [
+                        "2025-09-17T12:10:20.305247+02:00"
+                    ]
+                },
+                "1230202378356260885": {
+                    "joined_cooldown": [
+                        "2025-09-17T12:10:56.345367+02:00"
+                    ]
+                },
+                "1196116827848323116": {
+                    "joined_cooldown": [
+                        "2025-09-17T12:12:09.341000+02:00"
+                    ]
+                },
+                "1363247441054400746": {
+                    "joined_cooldown": [
+                        "2025-09-17T13:19:05.068109+02:00"
+                    ]
+                },
+                "211886585673809921": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:41:15.471099+02:00"
+                    ]
+                },
+                "1022557538404810763": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:42:11.607457+02:00"
+                    ]
+                },
+                "731104358342721536": {
+                    "joined_cooldown": [
+                        "2025-09-17T22:47:47.389783+02:00"
+                    ]
+                },
+                "1168547445165269113": {
+                    "joined_cooldown": [
+                        "2025-09-19T19:36:07.129870+02:00"
+                    ]
+                },
+                "1139202933037224027": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:52:29.282879+02:00"
+                    ]
+                },
+                "1379516039422939181": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:55:39.183901+02:00"
+                    ]
+                },
+                "819529288541274113": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:57:22.496366+02:00"
+                    ]
+                },
+                "1112777041713045504": {
+                    "joined_cooldown": [
+                        "2025-09-17T14:59:53.757731+02:00"
+                    ]
+                },
+                "1372598616291672196": {
+                    "joined_cooldown": [
+                        "2025-09-19T20:00:26.899153+02:00"
+                    ]
+                },
+                "1136055136049971231": {
+                    "joined_cooldown": [
+                        "2025-09-17T16:11:10.451412+02:00"
+                    ]
+                },
+                "1406307413929496597": {
+                    "joined_cooldown": [
+                        "2025-09-17T17:43:14.129255+02:00"
+                    ]
+                },
+                "1357444332063297546": {
+                    "joined_cooldown": [
+                        "2025-09-19T18:02:31.817449+02:00"
+                    ]
+                },
+                "273815750224117760": {
+                    "joined_cooldown": [
+                        "2025-09-17T20:13:12.217729+02:00"
+                    ]
+                },
+                "539823931935424513": {
+                    "joined_cooldown": [
+                        "2025-09-17T20:51:22.506252+02:00"
+                    ]
+                },
+                "1184202927729025134": {
+                    "joined_cooldown": [
+                        "2025-09-17T21:31:03.998060+02:00"
+                    ]
+                },
+                "970392537107955723": {
+                    "joined_cooldown": [
+                        "2025-09-17T22:35:39.261808+02:00"
+                    ]
+                },
+                "486173534192664577": {
+                    "joined_cooldown": [
+                        "2025-09-18T12:13:28.006759+02:00"
+                    ]
+                },
+                "1162416228086861979": {
+                    "joined_cooldown": [
+                        "2025-09-18T18:04:11.979333+02:00"
+                    ]
+                },
+                "1402510303643570291": {
+                    "joined_cooldown": [
+                        "2025-09-18T18:24:10.745815+02:00"
+                    ]
+                },
+                "1129556839143583764": {
+                    "joined_cooldown": [
+                        "2025-09-18T18:24:38.263544+02:00"
+                    ]
+                },
+                "1402517189323526207": {
+                    "joined_cooldown": [
+                        "2025-09-18T18:25:57.620189+02:00"
+                    ]
+                },
+                "746037883164426343": {
+                    "joined_cooldown": [
+                        "2025-09-20T20:01:14.080676+02:00"
+                    ]
+                },
+                "1112166610048929852": {
+                    "joined_cooldown": [
+                        "2025-09-18T21:01:57.141031+02:00"
+                    ]
+                },
+                "839055711903285250": {
+                    "joined_cooldown": [
+                        "2025-09-18T21:12:33.174194+02:00"
+                    ]
+                },
+                "540924339420266520": {
+                    "joined_cooldown": [
+                        "2025-09-18T22:11:23.553715+02:00"
+                    ]
+                },
+                "472693142886285314": {
+                    "joined_cooldown": [
+                        "2025-09-18T22:28:19.596163+02:00"
+                    ]
+                },
+                "905337464355446854": {
+                    "joined_cooldown": [
+                        "2025-09-18T23:36:24.630958+02:00"
+                    ]
+                },
+                "687585429452488740": {
+                    "joined_cooldown": [
+                        "2025-09-19T00:38:22.812853+02:00"
+                    ]
+                },
+                "420235462628605962": {
+                    "joined_cooldown": [
+                        "2025-09-19T13:59:57.622422+02:00"
+                    ]
+                },
+                "1227930088595521536": {
+                    "joined_cooldown": [
+                        "2025-09-19T17:04:20.062568+02:00"
+                    ]
+                },
+                "1047039717415321652": {
+                    "joined_cooldown": [
+                        "2025-09-19T17:33:21.294711+02:00"
+                    ]
+                },
+                "949738958236057631": {
+                    "joined_cooldown": [
+                        "2025-09-19T17:35:26.215744+02:00"
+                    ]
+                },
+                "764211699175522355": {
+                    "joined_cooldown": [
+                        "2025-09-19T17:39:44.932996+02:00"
+                    ]
+                },
+                "545291067142963221": {
+                    "joined_cooldown": [
+                        "2025-09-19T17:40:03.017206+02:00"
+                    ]
+                },
+                "963140891902636134": {
+                    "joined_cooldown": [
+                        "2025-09-19T17:57:27.175743+02:00"
+                    ]
+                },
+                "819103106414542878": {
+                    "joined_cooldown": [
+                        "2025-09-19T20:00:49.905712+02:00"
+                    ]
+                },
+                "1336271609836732448": {
+                    "joined_cooldown": [
+                        "2025-09-21T19:03:41.938411+02:00"
+                    ]
+                },
+                "619606819341598741": {
+                    "joined_cooldown": [
+                        "2025-09-19T21:56:05.410956+02:00"
+                    ]
+                },
+                "1093127700509638666": {
+                    "joined_cooldown": [
+                        "2025-09-20T00:15:11.190439+02:00"
+                    ]
+                },
+                "555371937501806612": {
+                    "joined_cooldown": [
+                        "2025-09-20T11:31:14.032301+02:00"
+                    ]
+                },
+                "1337907136985960518": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:52:49.597836+02:00"
+                    ]
+                },
+                "757233939168362539": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:53:58.444845+02:00"
+                    ]
+                },
+                "1069963093179912282": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:54:31.826296+02:00"
+                    ]
+                },
+                "1351912517827297401": {
+                    "joined_cooldown": [
+                        "2025-09-20T22:38:23.113176+02:00"
+                    ]
+                },
+                "1003326627457011785": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:56:08.729990+02:00"
+                    ]
+                },
+                "1045685101490618448": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:56:27.409068+02:00"
+                    ]
+                },
+                "847107517754507274": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:57:28.225883+02:00"
+                    ]
+                },
+                "1320401862050189425": {
+                    "joined_cooldown": [
+                        "2025-09-20T16:58:15.487590+02:00"
+                    ]
+                },
+                "1193887056271769620": {
+                    "joined_cooldown": [
+                        "2025-09-20T17:29:24.230906+02:00"
+                    ]
+                },
+                "921858934942335026": {
+                    "joined_cooldown": [
+                        "2025-09-20T17:42:26.221588+02:00"
+                    ]
+                },
+                "1394380090410012733": {
+                    "joined_cooldown": [
+                        "2025-09-20T17:56:42.362370+02:00"
+                    ]
+                },
+                "418856105863675924": {
+                    "joined_cooldown": [
+                        "2025-09-20T18:15:55.767737+02:00"
+                    ]
+                },
+                "1348298467923198035": {
+                    "joined_cooldown": [
+                        "2025-09-20T18:18:37.611815+02:00"
+                    ]
+                },
+                "924332107524874251": {
+                    "joined_cooldown": [
+                        "2025-09-20T19:35:25.193716+02:00"
+                    ]
+                },
+                "1018873278481309706": {
+                    "joined_cooldown": [
+                        "2025-09-20T20:09:21.406690+02:00"
+                    ]
+                },
+                "1266014166985080832": {
+                    "joined_cooldown": [
+                        "2025-09-20T21:46:13.269633+02:00"
+                    ]
+                },
+                "1310860842975100928": {
+                    "joined_cooldown": [
+                        "2025-09-20T21:46:42.351285+02:00"
+                    ]
+                },
+                "771832263704313857": {
+                    "joined_cooldown": [
+                        "2025-09-20T22:58:32.779685+02:00"
+                    ]
+                },
+                "976375713785602138": {
+                    "joined_cooldown": [
+                        "2025-09-21T16:01:37.560536+02:00"
+                    ]
+                },
+                "1047577077005697035": {
+                    "joined_cooldown": [
+                        "2025-09-21T18:36:31.823184+02:00"
+                    ]
+                },
+                "429286250512646165": {
+                    "joined_cooldown": [
+                        "2025-09-21T19:35:29.246177+02:00"
+                    ]
+                },
+                "1343200025840455712": {
+                    "joined_cooldown": [
+                        "2025-09-21T21:02:45.583270+02:00"
+                    ]
+                },
+                "1381400563966546002": {
+                    "joined_cooldown": [
+                        "2025-09-22T17:14:28.794890+02:00"
+                    ]
+                },
+                "808267685892456458": {
+                    "joined_cooldown": [
+                        "2025-09-22T18:44:48.534220+02:00"
+                    ]
+                },
+                "995982252129386557": {
+                    "joined_cooldown": [
+                        "2025-09-22T18:45:31.159533+02:00"
+                    ]
+                },
+                "839951471868117002": {
+                    "joined_cooldown": [
+                        "2025-09-22T18:46:50.085642+02:00"
+                    ]
+                },
+                "333256796372336650": {
+                    "joined_cooldown": [
+                        "2025-09-22T18:48:14.900559+02:00"
+                    ]
+                },
+                "740234556778479677": {
+                    "joined_cooldown": [
+                        "2025-09-22T18:50:30.495253+02:00"
+                    ]
+                },
+                "759619432388624455": {
+                    "joined_cooldown": [
+                        "2025-09-22T18:50:52.933430+02:00"
+                    ]
+                }
+            },
+            "setup": {
+                "leaderboard_channel": 1353503349768716318,
+                "elo_update_channel": 1387116562292408400,
+                "elo_matches_category": 1398701108515573851,
+                "transactions_channel": 1400616638323359824,
+                "log_channel": 1403886456300245012
+            }
         },
         "1387531673230512182": {
             "teams": {},
             "leaderboard": {},
-            "join_cooldowns": {}
+            "join_cooldowns": {},
+            "reload_leaderboard": false
         }
     }
 }

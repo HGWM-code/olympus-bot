@@ -21,6 +21,11 @@ class unregister(commands.Cog):
                 ephemeral=True
             )
             return 
+        
+        log_channel_id = load_config()["server"][str(interaction.guild.id)]["setup"]["log_channel"]
+        if log_channel_id is None:
+            await interaction.response.send_message("Log channel is not set up.", ephemeral=True)
+            return
 
         guild = interaction.user.guild
         guild_id = guild.id
@@ -40,10 +45,9 @@ class unregister(commands.Cog):
 
             save_config(config)
 
-            me_id = 747440512729874452
             try:
-                me = await self.bot.fetch_user(me_id)
-                await me.send(
+                log_channel = interaction.guild.get_channel(log_channel_id)
+                await log_channel.send(
                 f"**Unregister Log**\n"
                 f"User: {interaction.user} ({interaction.user.id})\n"
                 f"Guild: {guild.name} ({guild.id})\n"

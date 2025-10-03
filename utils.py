@@ -33,7 +33,7 @@ async def inacitivity_watcher(team_id, guild):
             teams[team_id]["day_count"] = 0
 
         save_config(config)
-        
+
         hour_count = config["server"][str(guild_id)]["teams"][team_id]["hour_count"]
         day_count = config["server"][str(guild_id)]["teams"][team_id]["day_count"]
 
@@ -41,7 +41,6 @@ async def inacitivity_watcher(team_id, guild):
             
             if hour_count < 24:
                 hour_count + 1
-                teams[team_id]["elo"] - 50
             elif hour_count == 24:
                 day_count + 1
                 hour_count = 0
@@ -60,9 +59,10 @@ async def inacitivity_watcher(team_id, guild):
                         color=discord.Color.red()
                     )
 
-                    result_channel = guild.get_channel(1387116562292408400)
+                    result_channel_id = config["server"][str(guild_id)]["setup"]["elo_update_channel"]
+                    result_channel = guild.get_channel(result_channel_id)
                     await result_channel.send(embed=embed)
-
+ 
             await asyncio.sleep(3600) #One hour
 
 class LeaderboardView(View):
@@ -167,7 +167,8 @@ async def update_leaderboard(interaction: discord.Interaction):
 
         pages.append(embed)
 
-    leaderboard_channel = interaction.guild.get_channel(1353503349768716318)
+    leaderboard_channel_id = config["server"][server_id]["setup"]["leaderboard_channel"]
+    leaderboard_channel = interaction.guild.get_channel(leaderboard_channel_id)
     if leaderboard_channel is None:
         await interaction.followup.send("Leaderboard channel not found.", ephemeral=True)
         return

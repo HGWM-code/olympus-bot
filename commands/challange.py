@@ -13,13 +13,12 @@ class MyCancelView(discord.ui.View):
         try:
             await interaction.channel.delete()
         except discord.NotFound:
-            await interaction.response.send_message("This channel has already been deleted.", ephemeral=True)
+            await interaction.followup.send("This channel has already been deleted.", ephemeral=True)
 
     @discord.ui.button(label="Cancel", style=discord.ButtonStyle.secondary)
     async def cancel_button(self, interaction: discord.Interaction, button: discord.ui.Button):
-        await interaction.response.send_message("Canceled.", ephemeral=True)
+        await interaction.followup.send("Canceled.", ephemeral=True)
         self.stop()
-
 
 class MyCloseView(discord.ui.View):
     def __init__(self):
@@ -33,27 +32,49 @@ class MyCloseView(discord.ui.View):
             color=discord.Color.red()
         )
         view = MyCancelView()
-        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
-
+        await interaction.followup.send(embed=embed, view=view, ephemeral=True)
 
 class Challenge(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    async def check_permission(self, interaction, user_roles, challenging_team_id, teams, challenged_team):
-        """Check if the user has Captain or Vice Captain permissions in the challenging team."""
-        has_permission = any(role.name == "[OLY] Captain" for role in user_roles) or any(role.name == "[OLY] Vice Captain" for role in user_roles)
-        if not has_permission:
-            await interaction.response.send_message(
-                "You need the `[OLY] Captain` or `[OLY] Vice Captain` role to use this command.",
+    async def check_permission(self, interaction, interaction_user_roles, challenging_team_id, teams, challenged_team_id):
+        guild = interaction.guild
+        guild_id = str(guild.id)
+        config = load_config()
+        invoker_id = str(interaction.user.id)
+        teams = config["server"][guild_id]["teams"]
+        team_block = teams.get(str(challenging_team_id), {})
+
+        # Captain check
+        if str(team_block.get("captain")) == invoker_id:
+            has_permission = True
+        else:
+            has_permission = False
+            # Check starters, subs, member for permissions
+            member_section = team_block.get("member", {})
+            for bucket in ("starters", "subs", "member"):
+                bucket_members = member_section.get(bucket, {}) or {}
+                user_entry = bucket_members.get(invoker_id)
+                if not isinstance(user_entry, dict):
+                    continue
+                perms = user_entry.get("permissions", {}) or {}
+                vc = bool(perms.get("vize-captain"))
+                if bool(perms.get("add-member")) or vc:
+                    has_permission = True
+                    break
+
+        # Ensure the user is part of the challenging team
+        if str(challenging_team_id) not in teams:
+            await interaction.followup.send(
+                "Team is not registered",
                 ephemeral=True
             )
             return False
 
-        # Ensure the user is part of the challenging team
-        if str(challenging_team_id) not in teams:
-            await interaction.response.send_message(
-                "You are not part of the challenging team.",
+        if not has_permission:
+            await interaction.followup.send(
+                "You need the `[OLY] Captain` or `[OLY] Vice Captain` role to use this command.",
                 ephemeral=True
             )
             return False
@@ -61,33 +82,37 @@ class Challenge(commands.Cog):
         # Ensure the user is actually in the challenging team
         user_team = None
         for team_id in teams:
-            if int(team_id) in [role.id for role in user_roles]:
+            if int(team_id) in [role.id for role in interaction_user_roles]:
                 user_team = team_id
                 break
 
         if user_team != str(challenging_team_id):
-            await interaction.response.send_message(
+            await interaction.followup.send(
                 "You can only challenge on behalf of your own team.",
                 ephemeral=True
             )
             return False
-        
-        if "inactivity" not in teams[str(challenged_team.id)]:
-            teams[str(challenged_team.id)]["inactivity"] = False
 
-        if teams[str(challenged_team.id)]["inactivity"] == True:
-            await interaction.response.send_message(
-                f"The team <@&{str(challenged_team.id)}> is set as inactive and cannot be challanged.",
+        challenged_key = str(challenged_team_id)
+        challenging_key = str(challenging_team_id)
+
+        if challenged_key not in teams:
+            await interaction.followup.send(
+                f"The team <@&{challenged_key}> is not registered.",
                 ephemeral=True
             )
             return False
-        
-        if "inactivity" not in teams[str(challenging_team_id.id)]:
-            teams[str(challenging_team_id.id)]["inactivity"] = False
 
-        if teams[str(challenging_team_id.id)]["inactivity"] == True:
-            await interaction.response.send_message(
-                f"The team <@&{str(challenging_team_id.id)}> is set as inactive and cannot be challanged.",
+        if teams.get(challenged_key, {}).get("inactivity", False) is True:
+            await interaction.followup.send(
+                f"The team <@&{challenged_key}> is set as inactive and cannot be challenged.",
+                ephemeral=True
+            )
+            return False
+
+        if teams.get(challenging_key, {}).get("inactivity", False) is True:
+            await interaction.followup.send(
+                f"The team <@&{challenging_key}> is set as inactive and cannot be challenged.",
                 ephemeral=True
             )
             return False
@@ -96,6 +121,7 @@ class Challenge(commands.Cog):
 
     @app_commands.command(name="challenge", description="Challenge a team to an Elo match")
     async def challenge(self, interaction: discord.Interaction, challenging_team: discord.Role, challenged_team: discord.Role):
+        await interaction.response.defer(ephemeral=True)
         guild = interaction.guild
         guild_id = guild.id
         config = load_config()
@@ -103,8 +129,13 @@ class Challenge(commands.Cog):
         interaction_user_roles = interaction.user.roles
         teams = config["server"][str(guild_id)]["teams"]
 
+        # Debug-Ausgabe
+        # print("Teams in Config:", list(teams.keys()))
+        # print("Challenging Team ID:", str(challenging_team.id))
+        # print("Challenged Team ID:", str(challenged_team.id))
+
         # Check if the user has permissions in the challenging team
-        check_perms = await self.check_permission(interaction, interaction_user_roles, challenging_team.id, teams, challenged_team)
+        check_perms = await self.check_permission(interaction, interaction_user_roles, challenging_team.id, teams, challenged_team.id)
         if not check_perms:
             return
 
@@ -120,14 +151,18 @@ class Challenge(commands.Cog):
             missing_teams.append(f"**{challenged_team.name}** (challenged team)")
 
         if missing_teams:
-            await interaction.response.send_message(
+            await interaction.followup.send(
                 f"One or both of the teams are not registered. The following teams are missing:\n" + "\n".join(missing_teams),
                 ephemeral=True
             )
             return
 
-        # Now both teams are confirmed to be valid
-        category = discord.utils.get(guild.categories, id=1398701108515573851)  # Specify your category ID
+        category_id = config["server"][str(guild_id)]["setup"]["elo_matches_category"]
+        if category_id is None:
+            await interaction.followup.send("Category ID is not set up.", ephemeral=True)
+            return
+
+        category = discord.utils.get(guild.categories, id=category_id)
 
         overwrites = {
             guild.default_role: discord.PermissionOverwrite(view_channel=False),
@@ -147,11 +182,14 @@ class Challenge(commands.Cog):
                 captain_member = guild.get_member(captain_id)
                 if captain_member:
                     captains_and_vps.append(captain_member)
-            
+
             # Check for vice-captains in the team (starters, subs, and members)
-            for rank_key in ["starters", "subs", "member"]:
-                for member_id, member_obj in team_data.get("member", {}).get(rank_key, {}).items():
-                    if "permissions" in member_obj and "vize-captain" in member_obj["permissions"]:
+            member_section = team_data.get("member", {})
+            for bucket in ("starters", "subs", "member"):
+                bucket_members = member_section.get(bucket, {}) or {}
+                for member_id, member_obj in bucket_members.items():
+                    perms = member_obj.get("permissions", {}) or {}
+                    if perms.get("vize-captain"):
                         member = guild.get_member(int(member_id))
                         if member:
                             captains_and_vps.append(member)
@@ -186,12 +224,10 @@ class Challenge(commands.Cog):
             view=welcomeEmbedView
         )
 
-        # Now ping the newly created channel using `#` symbol
-        await interaction.response.send_message(
+        await interaction.followup.send(
             f"Match channel {new_channel.mention} has been created",
             ephemeral=True
         )
-
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Challenge(bot))

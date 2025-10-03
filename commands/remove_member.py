@@ -29,6 +29,11 @@ class remove_member(commands.Cog):
         if not team_data:
             await interaction.followup.send("Team not found.", ephemeral=True)
             return
+        
+        log_channel_id = config["server"][guild_id]["setup"]["transactions_channel"]
+        if log_channel_id is None:
+            await interaction.followup.send("Transaction channel is not set up.", ephemeral=True)
+            return
 
         has_permission = any(role.name == "[OLY] Captain" for role in interaction.user.roles)
         has_team_permission = any(role.name == "[OLY] Team Perms" for role in interaction.user.roles)
@@ -68,10 +73,6 @@ class remove_member(commands.Cog):
             return
 
         tz = ZoneInfo("Europe/Berlin")
-        cooldown_end = datetime.now(tz) + timedelta(days=3)
-        config["server"][guild_id] \
-            .setdefault("join_cooldowns", {}) \
-            .setdefault(str(user.id), {})["joined_cooldown"] = [cooldown_end.isoformat()]
 
         # Check if the user has the [OLY] Vice Captain role in any other team
         vice_captain_role = discord.utils.get(guild.roles, name="[OLY] Vice Captain")
@@ -93,7 +94,6 @@ class remove_member(commands.Cog):
 
         save_config(config)
 
-        log_channel_id = 1400616638323359824
         channel = guild.get_channel(log_channel_id)
         if channel:
             embed = discord.Embed(
@@ -113,7 +113,7 @@ class remove_member(commands.Cog):
             await channel.send(embed=embed)
 
         await interaction.followup.send(
-            f"{user.mention} has been removed from {team.mention} and is on cooldown until **{cooldown_end.strftime('%Y-%m-%d %H:%M:%S %Z')}**.",
+            f"{user.mention} has been removed from {team.mention}",
             ephemeral=True
         )
 

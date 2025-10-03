@@ -25,9 +25,11 @@ class ConfirmationView(discord.ui.View):
 
     @staticmethod
     async def send_registration_log(interaction, team, user, starter_amount, sub_amount, config):
-        log_channel_id = 1400616638323359824
+        log_channel_id = config["server"][str(interaction.guild.id)]["setup"]["transactions_channel"]
+        
         guild = interaction.guild
-        channel = guild.get_channel(log_channel_id)
+        # ensure channel id is int
+        channel = interaction.guild.get_channel(int(log_channel_id))
         if not channel:
             return
 
@@ -54,8 +56,9 @@ class ConfirmationView(discord.ui.View):
 
     @staticmethod
     async def send_leave_log(interaction, team, user, config):
-        log_channel_id = 1400616638323359824
+        log_channel_id = config["server"][str(interaction.guild.id)]["setup"]["transactions_channel"]
         guild = interaction.guild
+        # ensure channel id is int
         channel = guild.get_channel(log_channel_id)
         if not channel:
             return
@@ -79,85 +82,92 @@ class ConfirmationView(discord.ui.View):
         embed.set_thumbnail(url=user.display_avatar.url)
 
         await channel.send(embed=embed)
+        @discord.ui.button(label="I have been Force signed", style=discord.ButtonStyle.red)
+        async def force_signed(self, interaction: discord.Interaction, button: discord.ui.Button):
+            if interaction.user.id != self.user.id:
+                await interaction.followup.send("You're not allowed to respond to this request.", ephemeral=True)
+                return
 
-    @discord.ui.button(label="I have been Force signed", style=discord.ButtonStyle.red)
-    async def force_signed(self, interaction: discord.Interaction, button: discord.ui.Button):
-        if interaction.user.id != self.user.id:
-            await interaction.followup.send("You're not allowed to respond to this request.", ephemeral=True)
-            return
+            await interaction.response.defer(ephemeral=True)
 
-        await interaction.response.defer(ephemeral=True)
+            # Disable the button clicked by the user (to prevent multiple presses)
+            button.disabled = True
+            await interaction.message.edit(view=self)
 
-        # Disable the button clicked by the user (to prevent multiple presses)
-        button.disabled = True
-        await interaction.message.edit(view=self)
+            guild = self.guild
+            guild_id = str(guild.id)
+            team = self.team
+            user = self.user
+            user_id = str(user.id)
 
-        guild = self.guild
-        guild_id = str(guild.id)
-        team = self.team
-        user = self.user
-        user_id = str(user.id)
+            config = load_config()
+            team_data = config.get("server", {}).get(guild_id, {}).get("teams", {}).get(str(team.id))
 
-        config = load_config()
-        team_data = config.get("server", {}).get(guild_id, {}).get("teams", {}).get(str(team.id))
+            if not team_data:
+                await interaction.followup.send("Team not found.", ephemeral=True)
+                return
 
-        if not team_data:
-            await interaction.followup.send("Team not found.", ephemeral=True)
-            return
+            members = team_data.get("member", {})
+            removed = False
+            # Remove the user from the team (starters, subs, member)
+            for bucket in ("starters", "subs", "member"):
+                bucket_map = members.get(bucket, {})
+                if user_id in bucket_map:
+                    del bucket_map[user_id]
+                    removed = True
+                    break
 
-        members = team_data.get("member", {})
-        removed = False
-        # Remove the user from the team (starters, subs, member)
-        for bucket in ("starters", "subs", "member"):
-            bucket_map = members.get(bucket, {})
-            if user_id in bucket_map:
-                del bucket_map[user_id]
-                removed = True
-                break
+            if not removed:
+                await interaction.followup.send("You are not a member of this team.", ephemeral=True)
+                return
 
-        if not removed:
-            await interaction.followup.send("You are not a member of this team.", ephemeral=True)
-            return
+            # Clear existing cooldown if present
+            try:
+                jc = config["server"][guild_id]["join_cooldowns"].get(user_id, {})
+                jc.pop("joined_cooldown", None)
+                if not jc:
+                    del config["server"][guild_id]["join_cooldowns"][user_id]
+            except KeyError:
+                pass
 
-        # Clear existing cooldown if present
-        try:
-            jc = config["server"][guild_id]["join_cooldowns"].get(user_id, {})
-            jc.pop("joined_cooldown", None)
-            if not jc:
-                del config["server"][guild_id]["join_cooldowns"][user_id]
-        except KeyError:
-            pass
+            save_config(config)
 
-        save_config(config)
+            # Remove the team role from the user
+            try:
+                member_obj = await guild.fetch_member(user.id)
+                await member_obj.remove_roles(team, reason="Force signed: user left team")
+            except discord.Forbidden:
+                await interaction.followup.send("I can't remove that role. Check Manage Roles and role hierarchy.", ephemeral=True)
+                return
+            except discord.HTTPException as e:
+                await interaction.followup.send("Failed to remove the role (HTTP error).", ephemeral=True)
+                print(f"Role removal error: {e}")
+                return
 
-        # Remove the team role from the user
-        try:
-            member_obj = await guild.fetch_member(user.id)
-            await member_obj.remove_roles(team, reason="Force signed: user left team")
-        except discord.Forbidden:
-            await interaction.followup.send("I can't remove that role. Check Manage Roles and role hierarchy.", ephemeral=True)
-            return
-        except discord.HTTPException as e:
-            await interaction.followup.send("Failed to remove the role (HTTP error).", ephemeral=True)
-            print(f"Role removal error: {e}")
-            return
+            # Log the leave action (make sure we use int channel id)
+            log_channel_id = config["server"][guild_id]["setup"].get("transactions_channel")
+            if log_channel_id:
+                channel = guild.get_channel(int(log_channel_id))
+                if channel:
+                    embed = discord.Embed(
+                        title=f"{team.name} Transaction",
+                        description=f"{user.mention} has **left** {team.mention}.",
+                        color=discord.Color.red(),
+                        timestamp=datetime.now(ZoneInfo("Europe/Berlin"))
+                    )
+                    embed.set_author(name=guild.name, icon_url=guild.icon.url if guild.icon else discord.Embed.Empty)
+                    embed.set_thumbnail(url=user.display_avatar.url)
+                    try:
+                        await channel.send(embed=embed)
+                    except discord.Forbidden:
+                        await interaction.followup.send("I can’t send embeds in the transactions channel (missing permission).", ephemeral=True)
+                else:
+                    await interaction.followup.send("Transactions channel not found. Check the channel ID in config.", ephemeral=True)
+            else:
+                await interaction.followup.send("Transactions channel not set in config.", ephemeral=True)
 
-        # Log the leave action
-        log_channel_id = 1400616638323359824
-        channel = guild.get_channel(log_channel_id)
-        if channel:
-            embed = discord.Embed(
-                title=f"{team.name} Transaction",
-                description=f"{user.mention} has **left** {team.mention}.",
-                color=discord.Color.red(),
-                timestamp=datetime.now(ZoneInfo("Europe/Berlin"))
-            )
-            embed.set_author(name=guild.name, icon_url=guild.icon.url if guild.icon else discord.Embed.Empty)
-            embed.set_thumbnail(url=user.display_avatar.url)
-            await channel.send(embed=embed)
-
-        await interaction.followup.send(f"You left {team.mention}.", ephemeral=True)
-        self.stop()
+            await interaction.followup.send(f"You left {team.mention}.", ephemeral=True)
+            self.stop()
 
 class add_member(commands.Cog):
     def __init__(self, bot):
@@ -180,67 +190,82 @@ class add_member(commands.Cog):
         ds_amount = 0
         setter_amount = 0
         lib_amount = 0
+        
+        transactions_channel_id = config["server"][guild_id]["setup"].get("transactions_channel", None)
+        if transactions_channel_id is None:
+            await interaction.followup.send("Transactions channel is not set up.", ephemeral=True)
+            return False  # ensure the validator aborts
 
-        for uid, data in config_member.get("starters", {}).items():
+        # --- count starters & positions (safe access) ---
+        for uid, data in (config_member.get("starters") or {}).items():
             starter_amount += 1
             member.append(uid)
 
-            if data.get("position") == "wing-spiker":
+            pos = (data or {}).get("position")
+            if pos == "wing-spiker":
                 ws_amount += 1
-            if data.get("position") == "defensive-specialist":
+            if pos == "defensive-specialist":
                 ds_amount += 1
-            if data.get("position") == "libero":
+            if pos == "libero":
                 lib_amount += 1
-            if data.get("position") == "setter":
+            if pos == "setter":
                 setter_amount += 1
 
+        # --- PERMISSION CHECK ---
         invoker_id = str(interaction.user.id)
-        for bucket in ("starters", "subs", "member"):
-            for uid, data in config_member.get(bucket, {}).items():
-                if uid == invoker_id:
-                    perms = data.get("permissions", {}) or {}
-                    if perms.get("add-member") or perms.get("vice-captain"):
-                        has_permission = True
-                        break
-            if has_permission:
-                break
+        team_key = str(team.id)
+        team_block = config_team[team_key]
 
         if has_team_permission:
             has_permission = True
-
-        for t_id, t in config_team.items():
-            for u in t["member"]["starters"].keys():
-                if u == str(user.id) and t_id != str(team.id):
-                    in_team = True
-                    break
-            if in_team:
-                break
-
-        for uid in config_member.get("subs", {}).keys():
-            sub_amount += 1
-            member.append(uid)
-
-        for uid in config_member.get("member", {}).keys():
-            member.append(uid)
-
-        if not in_team:  
-            for t_id, t in config_team.items():
-                for u in t["member"]["subs"].keys():
-                    if u == str(user.id) and t_id != str(team.id):
-                        in_team = True
+        else:
+            # Captain always allowed
+            if str(team_block.get("captain")) == invoker_id:
+                has_permission = True
+            else:
+                # Check explicit per-user permissions across buckets
+                has_permission = False
+                member_block = team_block.get("member", {}) or {}
+                for bucket in ("starters", "subs", "member"):
+                    user_entry = (member_block.get(bucket, {}) or {}).get(invoker_id)
+                    if not isinstance(user_entry, dict):
+                        continue
+                    perms = user_entry.get("permissions", {}) or {}
+                    # accept both vice/vize captain spellings
+                    vc = bool(perms.get("vize-captain"))
+                    if bool(perms.get("add-member")) or vc:
+                        has_permission = True
                         break
+
+        # in-team check (safe dict access)
+        for t_id, t in config_team.items():
+            mblk = (t.get("member") or {})
+            if str(user.id) in (mblk.get("starters") or {}):
+                in_team = (t_id != str(team.id))
                 if in_team:
                     break
 
+        for uid in (config_member.get("subs") or {}).keys():
+            sub_amount += 1
+            member.append(uid)
+
+        for uid in (config_member.get("member") or {}).keys():
+            member.append(uid)
+
+        if not in_team:
+            for t_id, t in config_team.items():
+                mblk = (t.get("member") or {})
+                if str(user.id) in (mblk.get("subs") or {}):
+                    in_team = (t_id != str(team.id))
+                    if in_team:
+                        break
+
         if not has_permission:
-            if interaction.user.id == config_team[str(team.id)]["captain"]:
-                has_permission = True
-            else:
-                await interaction.followup.send(
-                    f"You have no permission adding member to {team.mention}",
-                    ephemeral=True
-                )
-                return False
+            await interaction.followup.send(
+                f"You have no permission adding member to {team.mention}",
+                ephemeral=True
+            )
+            return False
 
         if str(user.id) in member:
             await interaction.followup.send(f"{user.mention} is already part of the Team", ephemeral=True)

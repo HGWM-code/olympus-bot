@@ -1,71 +1,72 @@
-import json
 import discord
 from discord.ext import commands
 from discord import app_commands
 from utils import load_config
 
-class list_member(commands.Cog):
-    def __init__(self, bot):
+class ListMember(commands.Cog):
+    def __init__(self, bot: commands.Bot, config: dict):
         self.bot = bot
+        self.config = config
 
-    @app_commands.command(name="list-member", description="List all the Members of a Team")
+    def mention_or_id(self, guild: discord.Guild, uid: str) -> str:
+        if not uid:
+            return "-"
+        member = guild.get_member(int(uid))
+        return member.mention if member else f"<@{uid}>"
+
+    def format_members(self, guild, member_dict):
+        if not member_dict:
+            return "None"
+        lines = []
+        for mid, data in member_dict.items():
+            position = data.get("position", "Unknown")
+            lines.append(f"{self.mention_or_id(guild, mid)} - {position}")
+        return "\n".join(lines)
+
+    @app_commands.command(name="list-member", description="Show the starters, subs, and members of a team")
+    @app_commands.describe(team="The team role")
     async def list_member(self, interaction: discord.Interaction, team: discord.Role):
-
-        guild_id = str(interaction.guild.id)
-        teams_id = str(team.id)
-        
         config = load_config()
-        teams = config["server"][guild_id]["teams"]
-        members = config["server"][guild_id]["members"]
+        guildID = str(interaction.guild.id)
+        teamID = str(team.id)
+        team_data = config["server"].get(guildID, {}).get("teams", {}).get(teamID, {})
 
-        starters = members.get("starters", {})
-        subs = members.get("subs", {})
-        member = members.get("member", {})
-
-        if teams_id not in teams:
-            await interaction.response.send_message(
-                f"The team `{team.name}`is not registered.",
-                ephemeral=True
-            )
-            return
-
-        if len(starters) == 0 and len(subs) == 0 and len(member) == 0:
-            await interaction.response.send_message(
-                f"The team `{team.name}` has no members.",
-                ephemeral=True
-            )
-            return
-        
-        class TeamPositions:
-            def __init__(self, ws1):
-                self.ws1 = ""
-                self.setter = ""
-                self.ws2 = ""
-                self.ds1 = ""
-                self.lib = ""
-                self.ds2 = ""
-
-        team_positions = TeamPositions()
-
-        for member in starters:
-            pos = member.get("position", "-")
-
-            if pos == "wing-spiker" and TeamPositions.ws1 == "":
-                team_positions.ws1 = member
-            elif pos == "setter" and team_positions.setter == "":
-                team_positions.setter = member
-            elif pos == "libero" and team_positions.lib == "":
-                team_positions.lib = member
-            elif pos == "defensive-specialist" and team_positions.ds1 == "":
-                team_positions.ds1 = member
-            elif pos == "wing-spiker" and team_positions.ws2 == "":
-                team_positions.ws2 = member
-            elif pos == "defensive-specialist" and team_positions.ds2 == "":
-                team_positions.ds2 = member
-        
-        member_list_embed = discord.Embed(
-            title=f"{team.name} Member",
-            color=team.colour()
+        embed = discord.Embed(
+            title=f"Team: {team.name}",
+            color=team.color if hasattr(team, "color") else discord.Color.yellow()
         )
+
+        captain_id = team_data.get("captain")
+        captain = self.mention_or_id(interaction.guild, captain_id) if captain_id else "Unknown"
+        embed.add_field(name="Captain", value=captain, inline=False)
+
+        starters = team_data.get("member", {}).get("starters", {})
+        subs = team_data.get("member", {}).get("subs", {})
+        members = team_data.get("member", {}).get("member", {})
+
+        embed.add_field(
+            name="Starters",
+            value=self.format_members(interaction.guild, starters),
+            inline=False
+        )
+        embed.add_field(
+            name="Subs",
+            value=self.format_members(interaction.guild, subs),
+            inline=False
+        )
+        embed.add_field(
+            name="Members",
+            value=self.format_members(interaction.guild, members),
+            inline=False
+        )
+
+        if not starters and not subs and not members:
+            embed.clear_fields()
+            embed.add_field(name="Captain", value=captain, inline=False)
+            embed.add_field(name="Members", value="No members.", inline=False)
+
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
 async def setup(bot: commands.Bot):
-    await bot.add_cog(list_member(bot))
+    from utils import load_config
+    await bot.add_cog(ListMember(bot, load_config()))

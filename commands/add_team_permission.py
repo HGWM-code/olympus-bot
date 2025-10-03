@@ -124,6 +124,12 @@ class AddTeamPermission(commands.Cog):
         teams = gconf.get("teams", {})
         team_id_str = str(team.id)
 
+        log_channel_id = config["server"][str(guild.id)]["setup"]["log_channel"] 
+
+        if log_channel_id is None:
+            await interaction.followup.send("Log channel is not set up.", ephemeral=True)
+            return
+
         if team_id_str not in teams:
             return await interaction.followup.send(
                 f"{team.mention} is not registered.",
@@ -176,7 +182,6 @@ class AddTeamPermission(commands.Cog):
         config["server"][str(guild.id)] = gconf
         save_config(config)
 
-        log_channel_id = 1403886456300245012 
         channel = guild.get_channel(log_channel_id)
         if channel:
             embed = discord.Embed(

@@ -30,6 +30,10 @@ class set_inactivity(commands.Cog):
         team_id = str(team.id)
         teams = config["server"][str(guild_id)]["teams"]
 
+        log_channel_id = config["server"][str(guild_id)]["setup"]["log_channel"]
+        if log_channel_id is None:
+            await interaction.response.send_message("Log channel is not set up.", ephemeral=True)
+            return
 
         if team_id not in teams:
             await interaction.response.send_message(
@@ -67,10 +71,9 @@ class set_inactivity(commands.Cog):
             result_channel = interaction.guild.get_channel(1387116562292408400)
             await result_channel.send(embed=embed)
 
-            me_id = 747440512729874452
             try:
-                    me = await self.bot.fetch_user(me_id)
-                    await me.send(
+                    log_channel = interaction.guild.get_channel(log_channel_id)
+                    await log_channel.send(
                         f"**Set Inactivity Log**\n"
                         f"User: {interaction.user} ({interaction.user.id})\n"
                         f"Guild: {guild.name} ({guild.id})\n"

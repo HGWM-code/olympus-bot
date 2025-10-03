@@ -68,7 +68,8 @@ class update_elo(commands.Cog):
 
         embed.description += f"\n\nsent by {interactionUser.mention}"
 
-        result_channel = interaction.guild.get_channel(1387116562292408400)
+        transaction_channel_id = config["server"][guild_id]["setup"]["elo_update_channel"]
+        result_channel = interaction.guild.get_channel(transaction_channel_id)
         await result_channel.send(embed=embed)
         await update_leaderboard(interaction)
 
@@ -98,6 +99,11 @@ class update_elo(commands.Cog):
         guild_id = str(interaction.guild.id)
         teams = config["server"][guild_id]["teams"]
         leaderboard = config["server"][guild_id]["leaderboard"]
+
+        transaction_channel_id = config["server"][guild_id]["setup"]["elo_update_channel"]
+        if transaction_channel_id is None:
+            await interaction.followup.send("Transaction channel is not set up.", ephemeral=True)
+            return
 
         baseElo = 10
         loosingElo = 10

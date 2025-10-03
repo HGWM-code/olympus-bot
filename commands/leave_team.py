@@ -17,7 +17,6 @@ class leave_team(commands.Cog):
         team: discord.Role
     ):
         await interaction.response.defer(ephemeral=True)
-
         guild = interaction.guild
         guild_id = str(guild.id)
         config = load_config()
@@ -27,6 +26,12 @@ class leave_team(commands.Cog):
 
         if not team_data:
             await interaction.followup.send("Team not found.", ephemeral=True)
+            return
+        
+        log_channel_id = config["server"][str(interaction.guild.id)]["setup"]["transactions_channel"]
+        channel = guild.get_channel(int(log_channel_id))
+        if log_channel_id is None:
+            await interaction.followup.send("Transaction channel is not set up.", ephemeral=True)
             return
 
         members = team_data.get("member", {})
@@ -43,15 +48,6 @@ class leave_team(commands.Cog):
         if not removed:
             await interaction.followup.send("You are not a member of this team.", ephemeral=True)
             return
-
-        # clear existing cooldown if present
-        try:
-            jc = config["server"][guild_id]["join_cooldowns"].get(str(interaction.user.id), {})
-            jc.pop("joined_cooldown", None)
-            if not jc:
-                del config["server"][guild_id]["join_cooldowns"][str(interaction.user.id)]
-        except KeyError:
-            pass
 
         save_config(config)
 
@@ -82,15 +78,8 @@ class leave_team(commands.Cog):
                 await interaction.user.remove_roles(vice_captain_role)
 
         tz = ZoneInfo("Europe/Berlin")
-        cooldown_end = datetime.now(tz) + timedelta(days=3)
-        config["server"][guild_id] \
-            .setdefault("join_cooldowns", {}) \
-            .setdefault(str(interaction.user.id), {})["joined_cooldown"] = [cooldown_end.isoformat()]
-
         save_config(config)
 
-        log_channel_id = 1400616638323359824
-        channel = guild.get_channel(log_channel_id)
         if channel:
             embed = discord.Embed(
                 title=f"{team.name} Transaction",
@@ -108,7 +97,7 @@ class leave_team(commands.Cog):
             await channel.send(embed=embed)
 
         await interaction.followup.send(
-            f"You left from {team.mention} and you are now on cooldown until **{cooldown_end.strftime('%Y-%m-%d %H:%M:%S %Z')}**.",
+            f"You left from {team.mention}",
             ephemeral=True
         )
 

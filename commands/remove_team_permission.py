@@ -120,6 +120,10 @@ class remove_team_permission(commands.Cog):
         teams = gconf.get("teams", {})
         team_id_str = str(team.id)
 
+        log_channel_id = config["server"][str(guild.id)]["setup"]["log_channel"]
+        if log_channel_id is None:
+            return await interaction.followup.send("Log channel is not set up.", ephemeral=True) 
+
         if team_id_str not in teams:
             return await interaction.followup.send(
                 f"{team.mention} is not registered.",
@@ -167,7 +171,7 @@ class remove_team_permission(commands.Cog):
         # Remove selected permissions
         for perm in selected:
             if perm in permissions:
-                del permissions[perm]
+                permissions[perm] = False
                 # Remove corresponding role if necessary
                 if perm == "vize-captain":
                     vize_captain_role = discord.utils.get(guild.roles, name="[OLY] Vice Captain")
@@ -181,7 +185,6 @@ class remove_team_permission(commands.Cog):
         save_config(config)
 
         # Log channel ID
-        log_channel_id = 1403886456300245012 
         channel = guild.get_channel(log_channel_id)
         if channel:
             embed = discord.Embed(

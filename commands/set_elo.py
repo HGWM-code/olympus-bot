@@ -27,6 +27,12 @@ class set_elo(commands.Cog):
         config = load_config()
         team_id = str(team.id)
 
+        log_channel_id = config["server"][str(guild_id)]["setup"]["log_channel"]
+
+        if log_channel_id is None:
+            await interaction.followup.send("Log channel is not set up.", ephemeral=True)
+            return
+
         teams = config["server"][str(guild_id)]["teams"]
         leaderboard = config["server"][str(guild_id)]["leaderboard"]
 
@@ -40,10 +46,9 @@ class set_elo(commands.Cog):
 
             save_config(config)
 
-            me_id = 747440512729874452
             try:
-                me = await self.bot.fetch_user(me_id)
-                await me.send(
+                log_channel = interaction.guild.get_channel(log_channel_id)
+                await log_channel.send(
                     f"**Set Elo Log**\n"
                     f"User: {interaction.user} ({interaction.user.id})\n"
                     f"Guild: {guild.name} ({guild.id})\n"
